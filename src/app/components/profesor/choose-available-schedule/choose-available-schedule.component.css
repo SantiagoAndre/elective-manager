@@ -4,7 +4,14 @@
   overflow: auto;
   border-radius: 5px;
   border-style: solid;
-	background: #AED581;
+}
+.select_block{
+  background: #AED581;
+
+}
+.unselect_block{
+  background: #FFFFFF;
+
 }
 .day {
   width: 18%;
