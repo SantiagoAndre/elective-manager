@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-
+import { SendAvailableScheduleService } from '../../../services/profesor/send-available-schedule.service';
 @Component({
 	selector: 'app-choose-available-schedule',
 	templateUrl: './choose-available-schedule.component.html',
@@ -12,7 +12,7 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 	htmlSchedule: String = ``;
 	schedule: any = [];
 
-	constructor() {
+	constructor(private sendSchedule: SendAvailableScheduleService) {
 		this.loadSchedule();
 
 
@@ -25,17 +25,16 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 		var index = 0;
 		var found = false;
 		for (var s in this.schedule) {
-			console.log(this.schedule[s]);
 			//console.log(day + "==" + this.schedule[s][0] + " and " + this.schedule[s][1] + " == " + block);
 			if (this.schedule[s][0] == day && this.schedule[s][1] == block) {
 				found = true;
 				break;
 			}
-			index+=1;
+			index += 1;
 		}
 		if (found) {
 			console.log("found");
-			this.schedule.splice(index,1);
+			this.schedule.splice(index, 1);
 		} else {
 			console.log("not found");
 			this.schedule.push([day, block]);
@@ -57,10 +56,9 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 		}
 		console.log(this.htmlSchedule);
 	}
-	getBlockClass(day,block){
+	getBlockClass(day, block) {
 		var found = false;
 		for (var s in this.schedule) {
-			console.log(this.schedule[s]);
 			//console.log(day + "==" + this.schedule[s][0] + " and " + this.schedule[s][1] + " == " + block);
 			if (this.schedule[s][0] == day && this.schedule[s][1] == block) {
 				found = true;
@@ -69,7 +67,13 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 
 		}
 
-		return {select_block:found,unselect_block:!found};
+		return { select_block: found, unselect_block: !found };
+	}
+	save() {
+		if (this.schedule.length != 0) {
+			alert(this.sendSchedule.send(this.schedule));
+		}
+
 	}
 
 }

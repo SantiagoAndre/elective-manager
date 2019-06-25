@@ -1,41 +1,46 @@
 .block {
   margin: 5px;
-  height:  75px;
+  height: 75px;
   overflow: auto;
   border-radius: 5px;
   border-style: solid;
 }
-.select_block{
+
+.select_block {
   background: #AED581;
-
 }
-.unselect_block{
+
+.unselect_block {
   background: #FFFFFF;
-
 }
+
 .day {
   width: 18%;
-  display:inline-table;
+  display: inline-table;
 }
 
 .form-schedule {
-
+  font-family: 'Lato';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  line-height: 1.5;
   width: 100%;
   text-align: center;
   overflow: hidden;
   color: black;
   background: #ECEFF1;
-
 }
-h1, h2,h3 {
+
+h1, h2, h3 {
   font-weight: 300;
 }
-
 
 h2 {
   font-size: 36px;
   margin: 0 0 16px;
 }
+
 h3 {
   font-size: 16px;
+  text-align: center;
 }
