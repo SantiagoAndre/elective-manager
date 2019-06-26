@@ -16,8 +16,8 @@ export class SignInComponent implements OnInit {
 	ngOnInit() {
 	}
   signIn(){
-    //this.iniciar.iniciarSesion(this.usuario).suscribe(rest => {alert(rest)});
-    console.log(this.signInService.signInService(this.user));
+    this.signInService.signInService(this.user).subscribe(rest => {alert(rest)});
+    //console.log(this.signInService.signInService(this.user));
 
   }
 
