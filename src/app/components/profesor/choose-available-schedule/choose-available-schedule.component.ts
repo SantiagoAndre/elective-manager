@@ -13,12 +13,13 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 	schedule: any = [];
 
 	constructor(private sendSchedule: SendAvailableScheduleService) {
-		this.loadSchedule();
+
 
 
 	}
 
 	ngOnInit() {
+			this.loadSchedule();
 	}
 	setSchedule(day, block) {
 		console.log("elegir el bloque " + block + " del dia ", day);

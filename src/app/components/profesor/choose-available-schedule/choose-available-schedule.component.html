@@ -1,3 +1,4 @@
+<!---  <div [innerHtml]="htmlSchedule" class="form-schedule"></div  -->
 <div class=day>
    <h3  class= "dayText">Lunes</h3>
    <div [ngClass] = 'getBlockClass(0,0)' class="block" (click) = 'setSchedule(0,0)' height=20></div>
@@ -43,4 +44,5 @@
    <div [ngClass] = 'getBlockClass(4,4)' class="block" (click) = 'setSchedule(4,4)' height=20></div>
    <div [ngClass] = 'getBlockClass(4,5)' class="block" (click) = 'setSchedule(4,5)' height=20></div>
 </div>
-<button class="btn btn-lg btn-primary btn-block" (click) = "save()" type="submit">Send</button>
+  <button class="btn btn-lg btn-primary btn-block" (click) = "save()" type="submit">Sign in</button>
+​
