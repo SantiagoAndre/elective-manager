@@ -5,16 +5,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
-
+import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
 import { ChooseAvailableScheduleComponent } from './components/profesor/choose-available-schedule/choose-available-schedule.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { SecretariaComponent } from './components/secretaria/secretaria.component';
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     ChooseAvailableScheduleComponent,
-    LoginComponent
+    LoginComponent,
+    ElectivaComponent,
+    SecretariaComponent
   ],
   imports: [
     BrowserModule,

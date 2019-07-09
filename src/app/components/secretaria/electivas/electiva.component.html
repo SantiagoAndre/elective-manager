@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #electivaForm="ngForm" (ngSubmit)="addElectiva(electivaForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="electivaService.selectedElectiva._id">
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.name" placeholder="Enter your FullName">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="position" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.position" placeholder="Enter your Position">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="office" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.office" placeholder="Enter your Office">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="salary" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.salary" value="0" placeholder="Enter your Salary">
+              </div>
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right" style="margin-left: 2px;" (click)="resetForm(electivaForm)">Clean</button>
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table class="striped highlight black-text">
+        <thead>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let electiva of electivaService.electivas">
+            <td>{{ electiva.name }}</td>
+            <td>{{ electiva.position }}</td>
+            <td>{{ electiva.office }}</td>
+            <td>
+              <a (click)="editElectiva(electiva)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click)="deleteElectiva(electiva._id, electivaForm)">
+                <i class="material-icons">delete</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
