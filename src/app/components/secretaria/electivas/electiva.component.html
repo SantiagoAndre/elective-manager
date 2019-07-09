@@ -10,13 +10,13 @@
                 <input type="text" name="name" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.name" placeholder="Enter your FullName">
               </div>
               <div class="input-field col-s12">
-                <input type="text" name="position" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.position" placeholder="Enter your Position">
+                <input type="text" name="position" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva._id" placeholder="Enter elective id">
               </div>
               <div class="input-field col-s12">
-                <input type="text" name="office" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.office" placeholder="Enter your Office">
+                <input type="text" name="office" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.teacherId" placeholder="Enter your Office">
               </div>
               <div class="input-field col-s12">
-                <input type="text" name="salary" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.salary" value="0" placeholder="Enter your Salary">
+                <input type="text" name="salary" #name="ngModel" [(ngModel)]="electivaService.selectedElectiva.needLab" value="false" >
               </div>
               <div class="card-action">
                 <div class="input-field col-s12">
@@ -32,16 +32,17 @@
     <div class="col s7">
       <table class="striped highlight black-text">
         <thead>
-          <th>Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Operations</th>
+          <th>Nombre</th>
+          <th>Id</th>
+          <th>Profesor</th>
+          <th>Necesita sala?</th>
         </thead>
         <tbody>
           <tr *ngFor="let electiva of electivaService.electivas">
             <td>{{ electiva.name }}</td>
-            <td>{{ electiva.position }}</td>
-            <td>{{ electiva.office }}</td>
+            <td>{{ electiva._id }}</td>
+            <td>{{ electiva.teacherId }}</td>
+            <td>{{ electiva.needLab }}</td>
             <td>
               <a (click)="editElectiva(electiva)">
                 <i class="material-icons">edit</i>
