@@ -6,18 +6,22 @@ import {  HttpClient,HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class SignInService {
-  API_URI = 'http://localhost:8080';
+export class SesionService {
+  API_URI = 'http://localhost:8080/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
   constructor(private http: HttpClient) { }
-  signInService(credencials: Observable<User[]>) {
-    console.log("url: "+ this.API_URI + '/signup');
-    //var params = [credencials.email,credencials.password];
+  login(credencials: Observable<User[]>) {
+    console.log("url: "+ this.API_URI + 'login');
     console.log(credencials);
-      return this.http.post(this.API_URI + '/signup', credencials,this.httpOptions);
+    return this.http.post(this.API_URI + 'login', credencials,this.httpOptions);
+  }
+  getToken(email:  Observable<String[]>){
+    console.log("url: "+ this.API_URI + 'getToken');
+    console.log(email);
+    //TODO
   }
 }

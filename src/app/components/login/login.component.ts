@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../interface/user'
-import { SendTokenService } from '../../services/send-token.service';
+import { SesionService } from '../../services/sesion.service';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +10,15 @@ import { SendTokenService } from '../../services/send-token.service';
 export class LoginComponent implements OnInit {
 
 
-  	user:String = "";
-  	constructor(private sendTokenService: SendTokenService) {
+  	user:any = "";
+  	constructor(private sesion: SesionService) {
   	}
   ngOnInit() {
   }
   login(){
     //this.iniciar.iniciarSesion(this.usuario).suscribe(rest => {alert(rest)});
 
-    alert(this.sendTokenService.send(this.user));
+    alert(this.sesion.getToken(this.user));
 
   }
 }

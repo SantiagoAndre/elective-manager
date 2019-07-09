@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { User } from '../../interface/user'
-import { SignInService } from '../../services/sign-in.service';
+import { SesionService } from '../../services/sesion.service';
 @Component({
 	selector: 'app-sign-in',
 	templateUrl: './sign-in.component.html',
@@ -10,14 +10,14 @@ import { SignInService } from '../../services/sign-in.service';
 export class SignInComponent implements OnInit {
 
 	user: any = {};
-	constructor(private signInService: SignInService) {
+	constructor(private sesion: SesionService) {
 	}
 
 	ngOnInit() {
 	}
   signIn(){
-    this.signInService.signInService(this.user).subscribe(rest => {alert(rest)});
-    //console.log(this.signInService.signInService(this.user));
+    this.sesion.login(this.user).subscribe(rest => {alert(rest)});
+    //console.log(this.sesion.login(this.user));
 
   }
 
