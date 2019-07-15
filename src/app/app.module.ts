@@ -15,10 +15,9 @@ import { ChooseAvailableScheduleComponent } from './components/profesor/choose-a
 import { LoginComponent } from './components/login/login.component';
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
 
-import { OrdersComponent } from './orders/orders.component';
-import { OrderComponent } from './orders/order/order.component';
-import { OrderItemsComponent } from './orders/order-items/order-items.component';
-import { OrderService } from './shared/order.service';
+import { ElectivesComponent } from './electives/electives.component';
+import { ElectiveItemsComponent } from './electives/elective-items/elective-items.component';
+import { ElectiveService } from './shared/elective.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +26,8 @@ import { OrderService } from './shared/order.service';
     LoginComponent,
     ElectivaComponent,
     SecretariaComponent,
-    OrdersComponent,
-    OrderComponent,
-    OrderItemsComponent
+    ElectivesComponent,
+    ElectiveItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +38,8 @@ import { OrderService } from './shared/order.service';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  entryComponents:[OrderItemsComponent],
-  providers: [OrderService],
+  entryComponents:[ElectiveItemsComponent],
+  providers: [ElectiveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

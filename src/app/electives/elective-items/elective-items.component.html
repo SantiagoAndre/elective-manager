@@ -1,0 +1,37 @@
+<h4 class="dispaly-4">{{textActionForm()}} Elective</h4>
+<hr>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit()">
+    <input type="hidden"  name="ElectiveItemID" #ElectiveItemID="ngModel" [(ngModel)]="elective._id">
+    <input type="hidden"  name="ElectiveID" #ElectiveID="ngModel" [(ngModel)]="elective._id">
+  <input type="hidden"  name="ItemName" #ItemName="ngModel" [(ngModel)]="elective.name">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label>Id</label>
+      <input name="Id" [(ngModel)]="elective._id" class="form-control" readonly>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label>Need Lab</label>
+      <input type="checkbox" name="needLab" [(ngModel)]="elective.needLab" class="form-control">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <input name="Name" [(ngModel)]="elective.name" class="form-control"
+     [class.is-invalid]="elective.name == '' ">
+  </div>
+  <div class="form-group">
+    <label>Professor</label>
+    <select name="Professor" [(ngModel)]="elective.teacherId" class="form-control"
+    [class.is-invalid]="elective.teacherId==''">
+      <option value="0">-Select-</option>
+      <option *ngFor="let item of itemList" value="{{item._id}}">{{item.name}}</option>
+      <option  value="01" >item </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="fa fa-database" ></i> {{textActionForm()}}</button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+  </div>
+</form>

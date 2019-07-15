@@ -6,7 +6,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ChooseAvailableScheduleComponent } from './components/profesor/choose-available-schedule/choose-available-schedule.component';
 import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
-import {OrderComponent} from './orders/order/order.component';
+import { ElectivesComponent } from './electives/electives.component';
 const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
   {path: 'signIn', component: SignInComponent},
@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'profesor/ChooseAvailableSchedule', component: ChooseAvailableScheduleComponent},
   {path: 'secretaria/electivas', component: ElectivaComponent},
   {path: 'secretaria', component: SecretariaComponent},
-  {path: 'orders', component: OrderComponent}
+  {path:'electives',component:ElectivesComponent}
 ];
 
 @NgModule({

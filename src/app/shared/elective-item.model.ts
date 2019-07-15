@@ -1,6 +1,6 @@
-export class OrderItem {
-    OrderItemID: number;
-    OrderID: number;
+export class ElectiveItem {
+    ElectiveItemID: number;
+    ElectiveID: number;
     ItemID: number;
     Quantity: number;
     ItemName:string;
