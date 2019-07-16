@@ -4,9 +4,9 @@ import { ItemService } from 'src/app/shared/item.service';
 import { Item } from 'src/app/shared/item.model';
 import { NgForm } from '@angular/forms';
 import { ElectiveService } from 'src/app/shared/elective.service';
-import { Professor } from './../../shared/professor.model';
-import { Elective } from './../../shared/elective.model';
-import { ProfessorService } from './../../shared/professor.service';
+import { Professor } from './../../../../shared/professor.model';
+import { Elective } from './../../../../shared/elective.model';
+import { ProfessorService } from './../../../../shared/professor.service';
 
 @Component({
   selector: 'app-elective-items',

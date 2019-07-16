@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ChooseAvailableScheduleComponent } from './components/profesor/choose-available-schedule/choose-available-schedule.component';
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
-import { ElectivesComponent } from './electives/electives.component';
+import { ElectivesComponent } from './components/secretary/electives/electives.component';
 const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
   {path: 'signIn', component: SignInComponent},
