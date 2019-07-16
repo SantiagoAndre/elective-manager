@@ -10,20 +10,20 @@
             <th>Professor</th>
             <th>Need Room?</th>
             <th>
-              <a class="btn btn-sm btn-success text-white" (click)="AddOrEditElectiveItem(null)"><i class="fa fa-plus"></i> Add  </a>
+              <a class="btn btn-sm btn-success text-white" (click)="AddOrEditElective(null)"><i class="fa fa-plus"></i> Add  </a>
             </th>
           </thead>
           <tbody>
             <tr *ngFor="let item of electiveList">
-              <th (click)="AddOrEditElectiveItem(item)">{{item._id}}</th>
-              <td (click)="AddOrEditElectiveItem(item)">{{item.name}}</td>
-              <td (click)="AddOrEditElectiveItem(item)">{{item.teacherId}}</td>
-              <td (click)="AddOrEditElectiveItem(item)">
+              <th (click)="AddOrEditElective(item)">{{item._id}}</th>
+              <td (click)="AddOrEditElective(item)">{{item.name}}</td>
+              <td (click)="AddOrEditElective(item)">{{item.teacherId}}</td>
+              <td (click)="AddOrEditElective(item)">
                 <input type="checkbox" name="myTextEditBox" value="checked(item.needLab)" />
               </td>
               <td>
                   <a class="btn text-danger" (click)="onElectiveDelete(item._id)"><i class="fa fa-trash fa-lg"></i></a>
-                  <a class="btn btn-sm btn-info text-white" (click)="AddOrEditElectiveItem(item)"><i class="fa fa-pencil"></i></a>
+                  <a class="btn btn-sm btn-info text-white" (click)="AddOrEditElective(item)"><i class="fa fa-pencil"></i></a>
               </td>
 
             </tr>

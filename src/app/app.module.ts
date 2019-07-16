@@ -16,8 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
 
 import { ElectivesComponent } from './components/secretary/electives/electives.component';
-import { ElectiveItemsComponent } from './components/secretary/electives/elective-items/elective-items.component';
-import { ElectiveService } from './services/secretary/elective.service'; 
+import { AddElectiveComponent } from './components/secretary/electives/add-elective/add-elective.component';
+import { ElectiveService } from './services/secretary/elective.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,7 @@ import { ElectiveService } from './services/secretary/elective.service';
     //ElectivaComponent,
     SecretariaComponent,
     ElectivesComponent,
-    ElectiveItemsComponent
+    AddElectiveComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +38,7 @@ import { ElectiveService } from './services/secretary/elective.service';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  entryComponents:[ElectiveItemsComponent],
+  entryComponents:[AddElectiveComponent],
   providers: [ElectiveService],
   bootstrap: [AppComponent]
 })

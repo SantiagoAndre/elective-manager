@@ -6,7 +6,7 @@ import { ElectiveService } from './../../../services/secretary/elective.service'
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ElectiveItemsComponent } from './elective-items/elective-items.component';
+import { AddElectiveComponent } from './add-elective/add-elective.component';
 import { Professor } from './../../../services/secretary/professor.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Elective } from './../../../services/secretary/elective.model';
@@ -43,13 +43,15 @@ export class ElectivesComponent implements OnInit {
       });
     }
   }
-  AddOrEditElectiveItem(elective) {
+  AddOrEditElective(elective) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = "50%";
     dialogConfig.data = {elective};
-    this.dialog.open(ElectiveItemsComponent, dialogConfig).afterClosed();
+    this.dialog.open(AddElectiveComponent, dialogConfig).afterClosed().subscribe(res => {
+      this.refreshList();
+    });
   }
 
   checked(value){

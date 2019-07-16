@@ -7,17 +7,17 @@ import { Elective } from './../../../../services/secretary/elective.model';
 import { ProfessorService } from './../../../../services/secretary/professor.service';
 
 @Component({
-  selector: 'app-elective-items',
-  templateUrl: './elective-items.component.html',
+  selector: 'app-add-elective',
+  templateUrl: './add-elective.component.html',
   styles: []
 })
-export class ElectiveItemsComponent implements OnInit {
+export class AddElectiveComponent implements OnInit {
   elective:Elective;
   isValid: boolean = true;
   professorList:any=[];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
-    public dialogRef: MatDialogRef<ElectiveItemsComponent>,
+    public dialogRef: MatDialogRef<AddElectiveComponent>,
 
     private electiveSevice: ElectiveService,
     private professorService: ProfessorService) { }
@@ -39,10 +39,8 @@ export class ElectiveItemsComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (this.validateForm()) {
       if (this.data.elective == null){
-        alert("add elective ts");
         this.electiveSevice.addElective(this.elective);
       }else{
-       alert("update elective ts");
         this.electiveSevice.updateElective(this.elective);
       }
       this.dialogRef.close();
