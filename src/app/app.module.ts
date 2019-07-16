@@ -17,7 +17,7 @@ import { SecretariaComponent } from './components/secretaria/secretaria.componen
 
 import { ElectivesComponent } from './components/secretary/electives/electives.component';
 import { ElectiveItemsComponent } from './components/secretary/electives/elective-items/elective-items.component';
-import { ElectiveService } from './shared/elective.service'; 
+import { ElectiveService } from './services/secretary/elective.service'; 
 @NgModule({
   declarations: [
     AppComponent,

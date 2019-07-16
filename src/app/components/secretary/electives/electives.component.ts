@@ -1,15 +1,15 @@
 
 import { ToastrService } from 'ngx-toastr';
 
-import { ProfessorService } from './../../../shared/professor.service';
-import { ElectiveService } from './../../../shared/elective.service';
+import { ProfessorService } from './../../../services/secretary/professor.service';
+import { ElectiveService } from './../../../services/secretary/elective.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ElectiveItemsComponent } from './elective-items/elective-items.component';
-import { Professor } from './../../../shared/professor.model';
+import { Professor } from './../../../services/secretary/professor.model';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Elective } from './../../../shared/elective.model';
+import { Elective } from './../../../services/secretary/elective.model';
 
 @Component({
   selector: 'app-electives',

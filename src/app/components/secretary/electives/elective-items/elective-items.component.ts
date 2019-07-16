@@ -1,12 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { ItemService } from 'src/app/shared/item.service';
-import { Item } from 'src/app/shared/item.model';
 import { NgForm } from '@angular/forms';
-import { ElectiveService } from 'src/app/shared/elective.service';
-import { Professor } from './../../../../shared/professor.model';
-import { Elective } from './../../../../shared/elective.model';
-import { ProfessorService } from './../../../../shared/professor.service';
+import { ElectiveService } from 'src/app/services/secretary/elective.service';
+import { Professor } from './../../../../services/secretary/professor.model';
+import { Elective } from './../../../../services/secretary/elective.model';
+import { ProfessorService } from './../../../../services/secretary/professor.service';
 
 @Component({
   selector: 'app-elective-items',
@@ -15,19 +13,17 @@ import { ProfessorService } from './../../../../shared/professor.service';
 })
 export class ElectiveItemsComponent implements OnInit {
   elective:Elective;
-  itemList: Item[];
   isValid: boolean = true;
   professorList:any=[];
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<ElectiveItemsComponent>,
-    private itemService: ItemService,
+
     private electiveSevice: ElectiveService,
     private professorService: ProfessorService) { }
 
   ngOnInit() {
 
-    this.itemService.getItemList().then(res => this.itemList = res as Item[]);
     if (this.data.elective == null)
       this.elective = new Elective();
     else
