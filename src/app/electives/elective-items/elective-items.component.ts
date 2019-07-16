@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { ElectiveItem } from 'src/app/shared/elective-item.model';
 import { ItemService } from 'src/app/shared/item.service';
 import { Item } from 'src/app/shared/item.model';
 import { NgForm } from '@angular/forms';

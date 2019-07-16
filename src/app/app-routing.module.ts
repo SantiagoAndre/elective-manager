@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ChooseAvailableScheduleComponent } from './components/profesor/choose-available-schedule/choose-available-schedule.component';
-import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
 import { ElectivesComponent } from './electives/electives.component';
 const routes: Routes = [
@@ -12,7 +11,7 @@ const routes: Routes = [
   {path: 'signIn', component: SignInComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profesor/ChooseAvailableSchedule', component: ChooseAvailableScheduleComponent},
-  {path: 'secretaria/electivas', component: ElectivaComponent},
+  //{path: 'secretaria/electivas', component: ElectivaComponent},
   {path: 'secretaria', component: SecretariaComponent},
   {path:'electives',component:ElectivesComponent}
 ];

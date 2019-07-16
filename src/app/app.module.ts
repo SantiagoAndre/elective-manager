@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { SignInComponent } from './components/sign-in/sign-in.component';
-import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
+//import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
 import { ChooseAvailableScheduleComponent } from './components/profesor/choose-available-schedule/choose-available-schedule.component';
 import { LoginComponent } from './components/login/login.component';
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
@@ -24,7 +24,7 @@ import { ElectiveService } from './shared/elective.service';
     SignInComponent,
     ChooseAvailableScheduleComponent,
     LoginComponent,
-    ElectivaComponent,
+    //ElectivaComponent,
     SecretariaComponent,
     ElectivesComponent,
     ElectiveItemsComponent

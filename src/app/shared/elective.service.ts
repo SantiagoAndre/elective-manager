@@ -1,15 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Elective } from './elective.model';
-import { ElectiveItem } from './elective-item.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElectiveService {
-  formData: Elective;
-  electiveItems: ElectiveItem[];
 
   constructor(private http: HttpClient) { }
   addElective(elective:Elective){
