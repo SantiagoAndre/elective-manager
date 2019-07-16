@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL : 'http://localhost:46568/api'
+  apiURL : 'https://electivas-api.herokuapp.com'
 };
 
 /*
