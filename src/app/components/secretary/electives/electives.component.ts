@@ -14,7 +14,7 @@ import { Elective } from './../../../services/secretary/elective.model';
 @Component({
   selector: 'app-electives',
   templateUrl: './electives.component.html',
-  styles: []
+  styleUrls: ['./electives.component.css']
 })
 export class ElectivesComponent implements OnInit {
   electiveList;
@@ -30,7 +30,7 @@ export class ElectivesComponent implements OnInit {
 
   refreshList() {
     this.service.getElectiveList().then(res => this.electiveList = res);
-    this.electiveList = [new Elective(213123,'sinformatica','02',true)];
+
   }
 
 
@@ -52,12 +52,5 @@ export class ElectivesComponent implements OnInit {
     this.dialog.open(AddElectiveComponent, dialogConfig).afterClosed().subscribe(res => {
       this.refreshList();
     });
-  }
-
-  checked(value){
-    if(value){
-      return "checked";
-    }
-    return "unchecked";
   }
 }

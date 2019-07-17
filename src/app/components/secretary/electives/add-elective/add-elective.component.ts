@@ -1,3 +1,6 @@
+
+import { ToastrService } from 'ngx-toastr';
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { NgForm } from '@angular/forms';
@@ -18,7 +21,7 @@ export class AddElectiveComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<AddElectiveComponent>,
-
+    private toastr: ToastrService,
     private electiveSevice: ElectiveService,
     private professorService: ProfessorService) { }
 
@@ -40,9 +43,15 @@ export class AddElectiveComponent implements OnInit {
     if (this.validateForm()) {
       if (this.data.elective == null){
         this.electiveSevice.addElective(this.elective);
+
+        this.toastr.warning("Add Successfully", "Management Electives App.");
+
       }else{
         this.electiveSevice.updateElective(this.elective);
+
+        this.toastr.warning("Update Successfully", "Management Electives App.");
       }
+
       this.dialogRef.close();
     }
   }

@@ -1,0 +1,36 @@
+.responsiveTbl table {
+ text-align: center;
+ width: 100%;
+}
+.ud-item{
+  display: inline;
+  padding: inherit;
+
+}
+th{
+  position: sticky;
+}
+thead {
+  top: 0px;  /* trigger sticky when reaches coordonates */
+  background-color: black;
+}
+@media screen and (max-width: 580px) {
+
+  .ud-item{
+    display: block;
+      
+  }
+
+  .needLab-column{
+    display: none;
+  }
+  .code-column{
+
+      max-width:20;
+  }
+  thead {
+  position: sticky;
+  top: 0px;  /* trigger sticky when reaches coordonates */
+  background-color: black;
+}
+}

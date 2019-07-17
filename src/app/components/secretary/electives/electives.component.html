@@ -2,28 +2,28 @@
   <h3 class="display-4 text-center"><img src="/assets/img/logo" width="160px"> Elective Management.</h3>
   <div class="container">
     <div class="row">
-      <div class="col-md-10 offset-md-1">
-        <table class="table table-hover">
-          <thead class="thead-light">
-            <th>#Elective No.</th>
-            <th>Name</th>
-            <th>Professor</th>
-            <th>Need Room? </th>
-            <th>
+      <div class="container-fluid table-responsive col-md-10 offset-md-1">
+        <table class="table table-hover table-condensed responsiveTbl">
+          <thead class="thead-light info">
+            <th  class="position-sticky code-column">Code</th>
+            <th class="position-sticky">Name</th>
+            <th class="position-sticky" id="professor-column">Professor</th>
+            <th class="position-sticky needLab-column">Need Room? </th>
+            <th class="position-sticky text-center">
               <a class="btn btn-sm btn-success text-white" (click)="AddOrEditElective(null)"><i class="fa fa-plus"></i> Add  </a>
             </th>
           </thead>
           <tbody>
             <tr *ngFor="let item of electiveList">
-              <th (click)="AddOrEditElective(item)">{{item._id}}</th>
+              <th class="code-column" (click)="AddOrEditElective(item)">{{item._id}}</th>
               <td (click)="AddOrEditElective(item)">{{item.name}}</td>
-              <td (click)="AddOrEditElective(item)">{{item.teacherId}}</td>
-              <td (click)="AddOrEditElective(item)">
-                <input type="checkbox" name="myTextEditBox" value="checked(item.needLab)" />
+              <td (click)="AddOrEditElective(item)">{{item.name}}</td>
+              <td class="needLab-column">
+                <mat-checkbox class="example-margin" [checked]="item.needLab" disabled>{{item.teacherId}}</mat-checkbox>
               </td>
               <td>
-                  <a class="btn text-danger" (click)="onElectiveDelete(item._id)"><i class="fa fa-trash fa-lg"></i></a>
-                  <a class="btn btn-sm btn-info text-white" (click)="AddOrEditElective(item)"><i class="fa fa-pencil"></i></a>
+                  <a class="ud-item btn text-danger " (click)="onElectiveDelete(item._id)"><i class="fa fa-trash fa-lg"></i></a>
+                  <a class="ud-item btn btn-sm btn-info text-white" (click)="AddOrEditElective(item)"><i class="fa fa-pencil"></i></a>
               </td>
 
             </tr>

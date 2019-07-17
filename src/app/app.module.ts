@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { SignInComponent } from './components/sign-in/sign-in.component';
 //import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
@@ -36,7 +37,8 @@ import { ElectiveService } from './services/secretary/elective.service';
     BrowserAnimationsModule,
     MatDialogModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatCheckboxModule
   ],
   entryComponents:[AddElectiveComponent],
   providers: [ElectiveService],
