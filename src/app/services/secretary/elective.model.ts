@@ -1,6 +1,7 @@
 export class Elective {
-  constructor(_id=null,name='', teacherId='', needLab=false) {
+  constructor(_id=null,idElective='',name='', teacherId='', needLab=false) {
       this._id = _id;
+      this.idElective = idElective;
       this.name = name;
       this.teacherId = teacherId;
       this.needLab = needLab;
@@ -10,4 +11,5 @@ export class Elective {
   name: string;
   teacherId: string;
   needLab: boolean;
+  idElective:string;
 }
