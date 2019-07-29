@@ -1,29 +1,36 @@
+<script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
 <div class="jumbotron jumbtron-fluid">
-  <h3 class="display-4 text-center"><img src="/assets/img/logo" width="160px"> Elective Management.</h3>
+  <div class="col-md-12">
+    <img src="/assets/img/logo" width="160px">
+    <h3 class="display-4 text-center">Gestion de Electivas</h3>
+  </div>
   <div class="container">
     <div class="row">
       <div class="container-fluid table-responsive col-md-10 offset-md-1">
-        <table class="table table-hover table-condensed responsiveTbl">
+        <table class="table table-hover table-condensed table-striped responsiveTbl">
           <thead class="thead-light info">
-            <th  class="position-sticky code-column">Code</th>
-            <th class="position-sticky">Name</th>
-            <th class="position-sticky" id="professor-column">Professor</th>
-            <th class="position-sticky needLab-column">Need Room? </th>
-            <th class="position-sticky text-center">
-              <a class="btn btn-sm btn-success text-white" (click)="AddOrEditElective(null)"><i class="fa fa-plus"></i> Add  </a>
+            <th  class="sticky-header code-column">Codigo</th>
+            <th class="sticky-header">Nombre</th>
+            <th class="sticky-header" id="professor-column">Profesor</th>
+            <th class="sticky-header needLab-column">Necesita salon? </th>
+            <th class="sticky-header text-center">
+              <a class="btn btn-sm btn-success text-white" (click)="AddOrEditElective(null)"><i id="btn-add" class="row col-md-12"  class="fa fa-plus"></i></a>
             </th>
           </thead>
           <tbody>
-            <tr *ngFor="let item of electiveList">
-              <th class="code-column" (click)="AddOrEditElective(item)">{{item._id}}</th>
-              <td (click)="AddOrEditElective(item)">{{item.name}}</td>
-              <td (click)="AddOrEditElective(item)">{{item.name}}</td>
-              <td class="needLab-column">
-                <mat-checkbox class="example-margin" [checked]="item.needLab" disabled>{{item.teacherId}}</mat-checkbox>
+            <tr *ngFor="let item of electiveList index as i;">
+              <th class="code-column" (click)="AddOrEditElective(item)">{{item.idElective}}</th>
+              <td class="machetazo1" (click)="AddOrEditElective(item)">{{item.name}}</td>
+              <td class="machetazo1" (click)="AddOrEditElective(item)">{{showProfessor(item.teacher)}}</td>
+              <td class="machetazo1" class="needLab-column">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" [(ngModel)]="item.needLab"  class="custom-control-input" id="customSwitch#{{i}}" (click)="setNeedLab(item)">
+                  <label class="custom-control-label" for="customSwitch#{{i}}"></label>
+                </div>
               </td>
               <td>
-                  <a class="ud-item btn text-danger " (click)="onElectiveDelete(item._id)"><i class="fa fa-trash fa-lg"></i></a>
-                  <a class="ud-item btn btn-sm btn-info text-white" (click)="AddOrEditElective(item)"><i class="fa fa-pencil"></i></a>
+                  <a class="ud-item btn text-danger " (click)="onElectiveDelete(item._id)"><i class="machetazo fa fa-trash fa-lg"></i></a>
+                  <a class="ud-item btn btn-sm btn-info text-white" (click)="AddOrEditElective(item)"><i class="machetazo fa fa-pencil"></i></a>
               </td>
 
             </tr>

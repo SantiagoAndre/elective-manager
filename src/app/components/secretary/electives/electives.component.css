@@ -2,35 +2,68 @@
  text-align: center;
  width: 100%;
 }
+#btn-add{
+  content:normal;
+}
 .ud-item{
   display: inline;
   padding: inherit;
+  width: auto;
 
 }
-th{
-  position: sticky;
-}
+.needLab-column{
+    width: 150px;
+    text-align: center;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float:right;
+  }
 thead {
   top: 0px;  /* trigger sticky when reaches coordonates */
   background-color: black;
 }
-@media screen and (max-width: 580px) {
+/*slider*/
+.toggle.ios, .toggle-on.ios, .toggle-off.ios {
+  border-radius: 20px;
+}
+.toggle.ios .toggle-handle {
+  border-radius: 20px;
 
+}
+
+@media screen and (max-width: 580px) {
+  #btn-add{
+    content: none;
+  }
   .ud-item{
     display: block;
-      
+    margin: 7px 0px;
+    vertical-align:middle;
   }
 
   .needLab-column{
     display: none;
   }
-  .code-column{
 
-      max-width:20;
-  }
   thead {
-  position: sticky;
-  top: 0px;  /* trigger sticky when reaches coordonates */
-  background-color: black;
-}
+    position: sticky;
+    top: 0px;  /* trigger sticky when reaches coordonates */
+    background-color: black;
+  }
+
+  .machetazo{
+    margin: center center;
+    position: absolute;
+    margin-top: -12px;
+    margin-left: -7px;
+  }
+  .machetazo1{
+    margin-top: 800x;
+    margin: center center;
+  }
+
 }
