@@ -33,6 +33,7 @@ export class AddElectiveComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (this.validateForm()) {
+            this.toastr.warning("hola",".");
       if (this.data.elective == null){
         this.electiveSevice.addElective(this.elective);
 
@@ -58,9 +59,9 @@ export class AddElectiveComponent implements OnInit {
   }
   textActionForm(){
     if(this.data.elective == null){
-      return "Create";
+      return "Crear";
     }else{
-      return "Update";
+      return "Actualizar";
     }
   }
   getIconClass() {

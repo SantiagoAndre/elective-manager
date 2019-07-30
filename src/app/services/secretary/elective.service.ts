@@ -10,13 +10,12 @@ export class ElectiveService {
 
   constructor(private http: HttpClient) { }
   addElective(elective:Elective){
-    elective._id = null;
     return this.http.post(environment.apiURL+'/create_elective', elective).toPromise();
   }
   updateElective(elective:Elective){
     console.log(elective);
 
-    return this.http.post(environment.apiURL+'/create_elective', elective).toPromise();
+    return this.http.post(environment.apiURL+'/update_elective', elective).toPromise();
   }
   getElectiveList() {
 

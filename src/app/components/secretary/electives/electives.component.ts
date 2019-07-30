@@ -1,13 +1,11 @@
 
 import { ToastrService } from 'ngx-toastr';
 import { HostListener } from "@angular/core"
-import { ProfessorService } from './../../../services/secretary/professor.service';
 import { ElectiveService } from './../../../services/secretary/elective.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddElectiveComponent } from './add-elective/add-elective.component';
-import { Professor } from './../../../services/secretary/professor.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Elective } from './../../../services/secretary/elective.model';
 
@@ -18,7 +16,7 @@ import { Elective } from './../../../services/secretary/elective.model';
 })
 
 export class ElectivesComponent implements OnInit {
-  electiveList:any;
+  electiveList= new Array();
   screenHeight:number;
   screenWidth:number;
   constructor(private service: ElectiveService,
@@ -36,21 +34,21 @@ export class ElectivesComponent implements OnInit {
 
   ngOnInit() {
     this.refreshList();
+
+  }
+  loadElectives(electives){
+    this.electiveList = new Array();
+    for(let elective in electives){
+      this.electiveList.push(electives[elective]);
+    }
+    console.log(electives);
   }
 
   refreshList() {
-    this.service.getElectiveList().then(res => {this.electiveList = res;this.imprimirElectivas(res);});
+    this.service.getElectiveList().then(res => this.loadElectives(res));
 
 
   }
-
-imprimirElectivas(electivas){
-  for(let electiva of electivas){
-    console.log(electiva.teacher);
-    console.log(electiva.idElective);
-    console.log(electiva._id);
-  }
-}
 
   onElectiveDelete(id: number) {
     if (confirm('Are you sure to delete this record?')) {
