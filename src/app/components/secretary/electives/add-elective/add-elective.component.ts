@@ -10,7 +10,7 @@ import { Elective } from './../../../../services/secretary/elective.model';
 @Component({
   selector: 'app-add-elective',
   templateUrl: './add-elective.component.html',
-  styleUrls: []
+  styleUrls: ['./add-elective.component.css']
 })
 export class AddElectiveComponent implements OnInit {
   elective:Elective;
@@ -63,5 +63,10 @@ export class AddElectiveComponent implements OnInit {
       return "Update";
     }
   }
+  getIconClass() {
+    var update= (this.data.elective == null);
+		return { 'fa-plus': update, 'fa-pencil': !update };
+	}
+
 
 }

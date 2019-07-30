@@ -1,0 +1,26 @@
+
+.inputDiv{
+  padding-right: 50px;
+}
+label{
+  font-size: 15px;
+}
+#labelLab{
+  margin-right: 40px;
+}
+#labDiv{
+  margin-top: 8px;
+}
+
+@media screen and (max-width:768px)
+{
+  label{
+    font-size: 16px;
+  }
+  #labelLab{
+    content: "Laboratorio?"
+  }
+  #labDiv{
+    margin-top: 5px;
+  }
+}

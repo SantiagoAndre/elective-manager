@@ -15,7 +15,7 @@ export class ElectiveService {
   }
   updateElective(elective:Elective){
     console.log(elective);
-    
+
     return this.http.post(environment.apiURL+'/create_elective', elective).toPromise();
   }
   getElectiveList() {
@@ -23,7 +23,7 @@ export class ElectiveService {
     return this.http.get(environment.apiURL + '/list_electives').toPromise();
   }
   deleteElective(id:number) {
-    let elective = {};
+    let elective = {"_id":id};
     elective._id = id;
       console.log(elective);
     return this.http.post(environment.apiURL+ `/delete_elective`,elective).toPromise();

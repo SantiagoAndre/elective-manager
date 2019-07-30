@@ -19,7 +19,8 @@ import { Elective } from './../../../services/secretary/elective.model';
 
 export class ElectivesComponent implements OnInit {
   electiveList:any;
-
+  screenHeight:number;
+  screenWidth:number;
   constructor(private service: ElectiveService,
     private router: Router,
     private toastr: ToastrService,
@@ -62,12 +63,12 @@ imprimirElectivas(electivas){
   setNeedLab(elective){
     elective.needLab = !elective.needLab;
     this.service.updateElective(elective);
-    this.toastr.warning(elective+"Update Successfully", "Management Electives App.").subscribe;
+    this.toastr.warning(elective+"Update Successfully", "Management Electives App.");
   }
   AddOrEditElective(elective) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-      dialogConfig.disableClose = true;
+      dialogConfig.disableClose = false;
       dialogConfig.width = this.widthSubComponent();
     dialogConfig.data = {elective};
     this.dialog.open(AddElectiveComponent, dialogConfig).afterClosed().subscribe(res => {
@@ -76,15 +77,15 @@ imprimirElectivas(electivas){
   }
   widthSubComponent(){
     //hasta 500 se toma el 100%
-    // desde 1000 se toma el 50%
+    // desde 800 se toma el 50%
     let width = 0;
     console.log("screenWidth: "+this.screenWidth);
-    if(this.screenWidth<=500 )
-      width = 100;
+    if(this.screenWidth<=600 )
+      width = 120;
     else if(this.screenWidth>=1000 )
         width = 50;
     else
-        width = 50+ (this.screenWidth-500)/500;
+        width = 70+ (this.screenWidth-600)/400;
     console.log("width sub screen: "+width);
     return width + "%";
   }
