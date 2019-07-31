@@ -1,3 +1,43 @@
+
+.nav-logo{
+  width: 50%;
+  margin: auto;
+}
+body,h1,h2,h3,h4,h5,div{
+  font-family: "Raleway", sans-serif
+}
+
+.unicauca-titulo-nav{
+  color: white;
+}
+
+.navbar{
+  background-color: #0C3664 !important;
+}
+
+
+.nav-link{
+  display: block !important;
+  padding: 0 15px !important;
+
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+a:hover{
+  color: white;
+  background-color: rgb(33, 67, 104) !important;
+}
+
+.config-icon{
+  background-color: #0C3664 !important;
+  margin-right: 10px;
+}
+
+.last_column{
+  width: 130px;
+}
+
 .responsiveTbl table {
  text-align: center;
  width: 100%;
@@ -9,19 +49,20 @@
   display: inline;
   padding: inherit;
   width: auto;
-
 }
 .needLab-column{
-    width: 150px;
-    text-align: center;
-  }
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    float:right;
-  }
+  width: 150px;
+  text-align: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  float:right;
+}
+
 thead {
   top: 0px;  /* trigger sticky when reaches coordonates */
   background-color: black;
@@ -35,7 +76,27 @@ thead {
 
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1000px) {
+
+  .titulo{
+    display: none;
+  }
+
+  .config-icon{
+    background-color: #0C3664 !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar{
+    height: 10%;
+  }
+
+  .collapse-menu{
+    background-color: #0C3664;
+    z-index: 999;
+  }
+
   #btn-add{
     content: none;
   }

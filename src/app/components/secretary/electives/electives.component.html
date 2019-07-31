@@ -1,12 +1,42 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
 <div class="jumbotron jumbtron-fluid">
-  <div class="col-md-12">
-    <img src="/assets/img/logo" width="160px">
-    <h3 class="display-4 text-center">Gestion de Electivas</h3>
-  </div>
+  <!-- <div class="col-md-12">
+    
+  </div> -->
+
+  <nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span style="color: white">X</span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img src="/assets/img/logo.png" class="d-inline-block nav-logo" alt="">
+    </a>
+    <div class="unicauca-titulo-nav">
+      <h4 class="titulo">Universidad del Cauca</h4>
+    </div>
+  
+    <div class="mb-1 collapse navbar-collapse " id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item collapse-menu">
+          <a class="nav-link" href="">Inicio 
+            <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active collapse-menu">
+          <a class="nav-link" href="">Listar electivas</a>
+        </li>
+        <li class="nav-item collapse-menu">
+            <a class="nav-link" href="">Cerrar sesión</a>
+          </li>
+        
+      </ul>
+    </div>
+  </nav>
+
   <div class="container">
+    <h3 class="display-4 text-center">Gestion de Electivas</h3>
     <div class="row">
-      <div class="container-fluid table-responsive col-md-10 offset-md-1">
+      <div class="container-fluid table-responsive col-md-11 offset-md-1">
         <table class="table table-hover table-condensed table-striped responsiveTbl">
           <thead class="thead-light info">
             <th  class="sticky-header code-column">Codigo</th>
@@ -14,7 +44,7 @@
             <th class="sticky-header" id="professor-column">Profesor</th>
             <th class="sticky-header needLab-column">Necesita salon? </th>
             <th class="sticky-header text-center">
-              <a class="btn btn-sm btn-success text-white" (click)="AddOrEditElective(null)"><i id="btn-add" class="row col-md-12"  class="fa fa-plus"></i></a>
+              <a class="btn btn-sm btn-success text-white" style="background-color: #0C3664" (click)="AddOrEditElective(null)"><i id="btn-add" class="row col-md-12"  class="fa fa-plus"></i></a>
             </th>
           </thead>
           <tbody>
@@ -28,9 +58,9 @@
                   <label class="custom-control-label" for="customSwitch#{{i}}"></label>
                 </div>
               </td>
-              <td>
-                  <a class="ud-item btn text-danger " (click)="onElectiveDelete(item._id)"><i class="machetazo fa fa-trash fa-lg"></i></a>
-                  <a class="ud-item btn btn-sm btn-info text-white" (click)="AddOrEditElective(item)"><i class="machetazo fa fa-pencil"></i></a>
+              <td class="last_column">
+                  <a class="ud-item btn text-danger config-icon" (click)="onElectiveDelete(item._id)"><i class="fa fa-trash"></i></a>
+                  <a class="ud-item btn btn-sm btn-info text-white config-icon" (click)="AddOrEditElective(item)"><i class="fa fa-pencil"></i></a>
               </td>
 
             </tr>
