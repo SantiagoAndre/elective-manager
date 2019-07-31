@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V12</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('http://www.unicauca.edu.co/posgrados/sites/default/files/facultad_ingenieria_0.jpg');">
+			<div class="wrap-login100 p-t-10 p-b-10">
+				<form class="login100-form validate-form" #formlogin="ngForm">
+
+					<div class="login100-form-avatar">
+						<img src="http://www.unicauca.edu.co/educoloquio/themes/educoloquio/img/escudo-blanco.png">
+					</div>
+
+					<span class="login100-form-title p-t-20 p-b-25">
+						<h4 *ngIf="!isError" >Universidad del Cauca</h4>
+						
+						<div class="alert alert-danger" role="alert" *ngIf="isError" >
+							¡Debes llenar todos los campos!
+						</div>
+
+						<div class="alert alert-danger" role="alert" *ngIf="isErrorData" >
+							¡Los datos ingresados son incorrectos!
+						</div>
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required" >
+						
+						<!-- <input class="input100" type="text" name="username" placeholder="Username">  -->
+						<input [(ngModel)]="user.username" type="email" name="email" class="input100" placeholder="Nombre de usuario" required autofocus>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user"></i>	
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+						<!-- <input class="input100" type="password" name="pass" placeholder="Password"> -->
+						<input [(ngModel)]="user.password" type="password" name="password" class="input100" placeholder="Contraseña" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock"></i>
+						</span>
+					</div>
+
+					<div class="container-login100-form-btn p-t-10">
+						<button class="login100-form-btn" (click) = "signIn(formlogin)" type="submit">Iniciar sesión</button>
+					</div>
+
+					<div class="text-center w-full p-t-25 p-b-35">
+						<a href="#" class="txt1">
+							¿Olvidaste tu cuenta?
+						</a>
+					</div>
+
+					<div class="text-center w-full">
+						<p class="txt1">
+							2019| Sistema de selección de electivas FIET
+							<i class="fa fa-long-arrow-right"></i>						
+						</p>
+						<p class="txt1">
+							Universidad del Cauca
+							<i class="fa fa-long-arrow-right"></i>						
+						</p>
+						<p class="txt1">
+							Version 1.0
+							<i class="fa fa-long-arrow-right"></i>						
+						</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+
+</body>
+</html>

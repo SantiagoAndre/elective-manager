@@ -16,6 +16,10 @@ import { ChooseAvailableScheduleComponent } from './components/profesor/choose-a
 import { ElectivesComponent } from './components/secretary/electives/electives.component';
 import { AddElectiveComponent } from './components/secretary/electives/add-elective/add-elective.component';
 import { ElectiveService } from './services/secretary/elective.service';
+
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SecretariaComponent } from './components/secretaria/secretaria.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,9 @@ import { ElectiveService } from './services/secretary/elective.service';
 
     //ElectivaComponent,
     ElectivesComponent,
-    AddElectiveComponent
+    AddElectiveComponent,
+    SignInComponent,
+    SecretariaComponent
   ],
   imports: [
     BrowserModule,
