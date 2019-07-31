@@ -1,48 +1,124 @@
 <!---  <div [innerHtml]="htmlSchedule" class="form-schedule"></div  -->
-<div class=day>
-   <h3  class= "dayText">Lunes</h3>
-   <div [ngClass] = 'getBlockClass(0,0)' class="block" (click) = 'setSchedule(0,0)' height=20></div>
-   <div [ngClass] = 'getBlockClass(0,1)' class="block" (click) = 'setSchedule(0,1)' height=20></div>
-   <div [ngClass] = 'getBlockClass(0,2)' class="block" (click) = 'setSchedule(0,2)' height=20></div>
-   <div [ngClass] = 'getBlockClass(0,3)' class="block" (click) = 'setSchedule(0,3)' height=20></div>
-   <div [ngClass] = 'getBlockClass(0,4)' class="block" (click) = 'setSchedule(0,4)' height=20></div>
-   <div [ngClass] = 'getBlockClass(0,5)' class="block" (click) = 'setSchedule(0,5)' height=20></div>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
+
+<nav class="navbar navbar-expand-lg">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span style="color: white">X</span>
+   </button>
+   <a class="navbar-brand" href="#">
+      <img src="/assets/img/logo.png" class="d-inline-block nav-logo" alt="">
+   </a>
+   <div class="unicauca-titulo-nav">
+      <h4 class="titulo">Universidad del Cauca</h4>
+   </div>
+   
+   <div class="mb-1 collapse navbar-collapse " id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item collapse-menu">
+         <a class="nav-link" href="">Accerca de 
+            <span class="sr-only">(current)</span></a>
+         </li>         
+      </ul>
+   </div>
+</nav>
+
+<div class="container m-auto">
+
+   <div class="subtitle-page mt-4">
+      <h1 class="text-left subtitle-page-text pt-3 ml-3">Elección de horario Electivas | Profesor</h1>
+   </div>
+
+   <div class="schedule-main clearfix">
+
+      <!-- Left electives -->
+      <div class="sended-electives">
+         <div class="list-elective mt-2">
+
+            <div class="elective">
+               <div class="elective-content m-2">
+                  <div class="elective-name">
+                     El nombre de la Electiva que puede ser asi
+                  </div>
+                  <div class="elective-code">
+                     Unos nuemros
+                  </div>
+               </div>
+            </div>
+
+            <div class="elective">
+               <div class="elective-content m-2">
+                  <div class="elective-name">
+                     El nombre de la Electiva que puede ser asi
+                  </div>
+                  <div class="elective-code">
+                     Unos nuemros
+                  </div>
+               </div>
+            </div>
+
+         </div>
+         
+      </div>
+      <!-- Finish Left electives -->
+
+
+      <div class="schedule">
+         <div class="schedule-section">
+            <div class="day">
+               <h3  class= "dayText">Lunes</h3>
+               <div [ngClass] = 'getBlockClass(0,0)' class="block" (click) = 'setSchedule(0,0)' height=20></div>
+               <div [ngClass] = 'getBlockClass(0,1)' class="block" (click) = 'setSchedule(0,1)' height=20></div>
+               <div [ngClass] = 'getBlockClass(0,2)' class="block" (click) = 'setSchedule(0,2)' height=20></div>
+               <div [ngClass] = 'getBlockClass(0,3)' class="block" (click) = 'setSchedule(0,3)' height=20></div>
+               <div [ngClass] = 'getBlockClass(0,4)' class="block" (click) = 'setSchedule(0,4)' height=20></div>
+               <div [ngClass] = 'getBlockClass(0,5)' class="block" (click) = 'setSchedule(0,5)' height=20></div>
+            </div>
+            <div class=day>
+               <h3  class= "dayText">Martes</h3>
+               <div [ngClass] = 'getBlockClass(1,0)' class="block" (click) = 'setSchedule(1,0)' height=20></div>
+               <div [ngClass] = 'getBlockClass(1,1)' class="block" (click) = 'setSchedule(1,1)' height=20></div>
+               <div [ngClass] = 'getBlockClass(1,2)' class="block" (click) = 'setSchedule(1,2)' height=20></div>
+               <div [ngClass] = 'getBlockClass(1,3)' class="block" (click) = 'setSchedule(1,3)' height=20></div>
+               <div [ngClass] = 'getBlockClass(1,4)' class="block" (click) = 'setSchedule(1,4)' height=20></div>
+               <div [ngClass] = 'getBlockClass(1,5)' class="block" (click) = 'setSchedule(1,5)' height=20></div>
+            </div>
+            <div class=day>
+               <h3  class= "dayText">Miercoles</h3>
+               <div [ngClass] = 'getBlockClass(2,0)' class="block" (click) = 'setSchedule(2,0)' height=20></div>
+               <div [ngClass] = 'getBlockClass(2,1)' class="block" (click) = 'setSchedule(2,1)' height=20></div>
+               <div [ngClass] = 'getBlockClass(2,2)' class="block" (click) = 'setSchedule(2,2)' height=20></div>
+               <div [ngClass] = 'getBlockClass(2,3)' class="block" (click) = 'setSchedule(2,3)' height=20></div>
+               <div [ngClass] = 'getBlockClass(2,4)' class="block" (click) = 'setSchedule(2,4)' height=20></div>
+               <div [ngClass] = 'getBlockClass(2,5)' class="block" (click) = 'setSchedule(2,5)' height=20></div>
+            </div>
+            <div class=day>
+               <h3  class= "dayText">Jueves</h3>
+               <div [ngClass] = 'getBlockClass(3,0)' class="block" (click) = 'setSchedule(3,0)' height=20></div>
+               <div [ngClass] = 'getBlockClass(3,1)' class="block" (click) = 'setSchedule(3,1)' height=20></div>
+               <div [ngClass] = 'getBlockClass(3,2)' class="block" (click) = 'setSchedule(3,2)' height=20></div>
+               <div [ngClass] = 'getBlockClass(3,3)' class="block" (click) = 'setSchedule(3,3)' height=20></div>
+               <div [ngClass] = 'getBlockClass(3,4)' class="block" (click) = 'setSchedule(3,4)' height=20></div>
+               <div [ngClass] = 'getBlockClass(3,5)' class="block" (click) = 'setSchedule(3,5)' height=20></div>
+            </div>
+            <div class=day>
+               <h3  class= "dayText">Viernes</h3>
+               <div [ngClass] = 'getBlockClass(4,0)' class="block" (click) = 'setSchedule(4,0)' height=20></div>
+               <div [ngClass] = 'getBlockClass(4,1)' class="block" (click) = 'setSchedule(4,1)' height=20></div>
+               <div [ngClass] = 'getBlockClass(4,2)' class="block" (click) = 'setSchedule(4,2)' height=20></div>
+               <div [ngClass] = 'getBlockClass(4,3)' class="block" (click) = 'setSchedule(4,3)' height=20></div>
+               <div [ngClass] = 'getBlockClass(4,4)' class="block" (click) = 'setSchedule(4,4)' height=20></div>
+               <div [ngClass] = 'getBlockClass(4,5)' class="block" (click) = 'setSchedule(4,5)' height=20></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="save-bottom mt-4">
+      <button class="btn btn-lg btn-primary btn-block set-color" (click) = "save()" type="submit">Sign in</button>
+   </div>
+   
+   ​
 </div>
-<div class=day>
-   <h3  class= "dayText">Martes</h3>
-   <div [ngClass] = 'getBlockClass(1,0)' class="block" (click) = 'setSchedule(1,0)' height=20></div>
-   <div [ngClass] = 'getBlockClass(1,1)' class="block" (click) = 'setSchedule(1,1)' height=20></div>
-   <div [ngClass] = 'getBlockClass(1,2)' class="block" (click) = 'setSchedule(1,2)' height=20></div>
-   <div [ngClass] = 'getBlockClass(1,3)' class="block" (click) = 'setSchedule(1,3)' height=20></div>
-   <div [ngClass] = 'getBlockClass(1,4)' class="block" (click) = 'setSchedule(1,4)' height=20></div>
-   <div [ngClass] = 'getBlockClass(1,5)' class="block" (click) = 'setSchedule(1,5)' height=20></div>
-</div>
-<div class=day>
-   <h3  class= "dayText">Miercoles</h3>
-   <div [ngClass] = 'getBlockClass(2,0)' class="block" (click) = 'setSchedule(2,0)' height=20></div>
-   <div [ngClass] = 'getBlockClass(2,1)' class="block" (click) = 'setSchedule(2,1)' height=20></div>
-   <div [ngClass] = 'getBlockClass(2,2)' class="block" (click) = 'setSchedule(2,2)' height=20></div>
-   <div [ngClass] = 'getBlockClass(2,3)' class="block" (click) = 'setSchedule(2,3)' height=20></div>
-   <div [ngClass] = 'getBlockClass(2,4)' class="block" (click) = 'setSchedule(2,4)' height=20></div>
-   <div [ngClass] = 'getBlockClass(2,5)' class="block" (click) = 'setSchedule(2,5)' height=20></div>
-</div>
-<div class=day>
-   <h3  class= "dayText">Jueves</h3>
-   <div [ngClass] = 'getBlockClass(3,0)' class="block" (click) = 'setSchedule(3,0)' height=20></div>
-   <div [ngClass] = 'getBlockClass(3,1)' class="block" (click) = 'setSchedule(3,1)' height=20></div>
-   <div [ngClass] = 'getBlockClass(3,2)' class="block" (click) = 'setSchedule(3,2)' height=20></div>
-   <div [ngClass] = 'getBlockClass(3,3)' class="block" (click) = 'setSchedule(3,3)' height=20></div>
-   <div [ngClass] = 'getBlockClass(3,4)' class="block" (click) = 'setSchedule(3,4)' height=20></div>
-   <div [ngClass] = 'getBlockClass(3,5)' class="block" (click) = 'setSchedule(3,5)' height=20></div>
-</div>
-<div class=day>
-   <h3  class= "dayText">Viernes</h3>
-   <div [ngClass] = 'getBlockClass(4,0)' class="block" (click) = 'setSchedule(4,0)' height=20></div>
-   <div [ngClass] = 'getBlockClass(4,1)' class="block" (click) = 'setSchedule(4,1)' height=20></div>
-   <div [ngClass] = 'getBlockClass(4,2)' class="block" (click) = 'setSchedule(4,2)' height=20></div>
-   <div [ngClass] = 'getBlockClass(4,3)' class="block" (click) = 'setSchedule(4,3)' height=20></div>
-   <div [ngClass] = 'getBlockClass(4,4)' class="block" (click) = 'setSchedule(4,4)' height=20></div>
-   <div [ngClass] = 'getBlockClass(4,5)' class="block" (click) = 'setSchedule(4,5)' height=20></div>
-</div>
-  <button class="btn btn-lg btn-primary btn-block" (click) = "save()" type="submit">Sign in</button>
-​
+   
+

@@ -12,6 +12,10 @@ label{
   margin-top: 8px;
 }
 
+.default-color{
+  background-color: #0C3664 !important;
+}
+
 @media screen and (max-width:768px)
 {
   label{
