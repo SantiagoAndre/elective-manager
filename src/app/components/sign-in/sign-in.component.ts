@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { SesionService } from '../../services/sesion.service';
 import {Router} from "@angular/router";
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-sign-in',
@@ -15,9 +16,6 @@ export class SignInComponent implements OnInit {
 	constructor(private sesion: SesionService,
 	 private router:Router) {
 	}
-
-	public isError = false;
-	public isErrorData = false;
 
 	ngOnInit() {
 	}
@@ -35,34 +33,26 @@ export class SignInComponent implements OnInit {
 				},
 				error => this.onIsErrorData()
 			);
-			//this.sesion.login(this.user);
-			//this.isError = false;
 		}
 		else{
 			this.onIsError();
 		}
-
-		//this.sesion.login(this.user).subscribe(rest => {alert(rest)});
-
 	}
 
 	onIsError(): void{
-		/*alert("ups datos erroneos");*/
-		this.isError = true;
-		setTimeout(() =>{
-			this.isError = false;
-		}, 4000)
+		Swal.fire({
+			title: 'Error!',
+			text: 'Debes llenar todos los campos',
+			type: 'error'
+		});
 	}
 
 	onIsErrorData(): void{
-		this.isErrorData = true;
-		setTimeout(() =>{
-			this.isErrorData = false;
-		}, 4000)
-	}
-
-	triggerAlert(){
-		
+		Swal.fire({
+			title: 'Error!',
+			text: 'Los datos son incorrectos',
+			type: 'error'
+		});
 	}
 
 }
