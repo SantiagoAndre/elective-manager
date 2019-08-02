@@ -12,7 +12,7 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 	user: any = {};
 
 	constructor(private sendSchedule: SendAvailableScheduleService) {
-
+@input() infohijo:any;
 
 
 	}

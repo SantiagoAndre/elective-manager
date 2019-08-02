@@ -8,8 +8,6 @@ import { Component, OnInit,Input,Output } from '@angular/core';
 export class ScheduleComponent implements OnInit {
 
   schedule: any = [];
-  @Input() days: any = [];
-  @Input() blocks: any = [];
 
 //@Output outEvent = new EventEmitter<any>();
   constructor() { }
