@@ -113,36 +113,6 @@ html {
   background-color: #0C3664 !important;
 }
 
-.block {
-  height: 75px;
-  overflow: auto;
-  border: 1px solid rgb(141, 141, 141);
-}
-
-.select_block {
-  background: #AED581;
-}
-
-.unselect_block {
-  background: #FFFFFF;
-}
-
-.day {
-  width: 18%;
-  display: inline-table;
-}
-.hourText{
-  text-align: center;
-}
-.contentHourText{
-  height: 75px;
-  overflow: auto;
-  border: 1px solid rgb(141, 141, 141);
-}
-.hourColumn{
-  width: 5%;
-  display: inline-table;
-}
 .save-bottom{
   width: 95%;
 }

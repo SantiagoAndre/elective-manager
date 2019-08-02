@@ -1,0 +1,53 @@
+*{
+  font-family: 'Lato';
+}
+.block {
+  height: 75px;
+  overflow: auto;
+  border: 1px solid rgb(141, 141, 141);
+}
+
+.select_block {
+  background: #AED581;
+}
+
+.unselect_block {
+  background: #FFFFFF;
+}
+
+.day {
+  width: 18%;
+  display: inline-table;
+}
+.hourText{
+  text-align: center;
+}
+.contentHourText{
+  height: 75px;
+  overflow: auto;
+  border: 1px solid rgb(141, 141, 141);
+}
+.hourColumn{
+  width: 5%;
+  display: inline-table;
+}
+
+
+
+h1, h2{
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 0 0 16px;
+}
+
+h3 {
+  font-size: 16px;
+  text-align: center;
+}
+h4 {
+  font-size: 14px;
+  text-align: center;
+}

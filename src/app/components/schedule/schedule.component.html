@@ -1,0 +1,21 @@
+<div class="hourColumn" >
+  <h3  class= "dayText">Hora</h3>
+  <div class="contentHourText" *ngFor="let vblock of blocks">
+    <h4  class="hourText"  height=20>{{vblock}}</h4>
+  </div>
+
+</div>
+
+<div class="day" *ngFor="let vday of days; let i = index" >
+    <h3  class= "dayText">{{vday}}</h3>
+    <div *ngFor="let vblock of blocks; let j =index">
+      <div *ngIf="!vblock; then breakblock else workblock"> </div>
+        <ng-template #breakblock>
+            <div  class="block"  height=20></div>
+        </ng-template>
+        <ng-template #workblock>
+          <div [ngClass] = 'getBlockClass(i,j)' class="block" (click) = 'setSchedule(i,j) ' height=20></div>
+        </ng-template>
+
+    </div>
+</div>
