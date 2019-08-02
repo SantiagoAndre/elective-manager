@@ -11,6 +11,8 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 	user: any = {};
 	htmlSchedule: String = ``;
 	schedule: any = [];
+	days: any = [];
+	blocks: any = [];
 
 	constructor(private sendSchedule: SendAvailableScheduleService) {
 
@@ -43,7 +45,7 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 
 		console.log(this.schedule);
 	}
-	loadSchedule() {
+	loadSchedule1() {
 		var days = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"];
 		var blocks = 6;
 		for (var day in days) {
@@ -56,6 +58,12 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 			this.htmlSchedule += "</div>\n";
 		}
 		console.log(this.htmlSchedule);
+	}
+
+	loadSchedule() {
+		this.days = [ "Lunes", "Martes", "Miercoles", "Jueves","Viernes"];
+		this.blocks = ['7-9','9-11','11-1',null,'2-4','4-6','6-8'];
+
 	}
 	getBlockClass(day, block) {
 		var found = false;
