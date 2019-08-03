@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //import { HttpClientModule, HttpClient, HttpHeaders} from '@angular/common/http';
-import { ChooseAvailableScheduleComponent } from './components/profesor/choose-available-schedule/choose-available-schedule.component';
-
+import { ScheduleProfessorComponent } from './components/professor/schedule-professor/schedule-professor.component';
+import {ScheduleComponent} from './components/schedule/schedule.component'
 import { ElectivesComponent } from './components/secretary/electives/electives.component';
 
 import { SecretariaComponent } from './components/secretaria/secretaria.component';
@@ -15,10 +15,11 @@ import { SessionupGuard } from './guards/sessionup.guard';
 const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
   {path: 'signIn', component: SignInComponent, canActivate: [SessionupGuard]},
-  {path: 'profesor/ChooseAvailableSchedule', component: ChooseAvailableScheduleComponent},
+  {path: 'profesor/horario', component: ScheduleProfessorComponent},
   //{path: 'secretaria/electivas', component: ElectivaComponent},
   {path:'electives',component:ElectivesComponent},
-  {path: 'secretaria', component: SecretariaComponent}
+  {path: 'secretaria', component: SecretariaComponent},
+  {path: 'horario', component: ScheduleComponent}
 ];
 
 @NgModule({

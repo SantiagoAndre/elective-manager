@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 import { SendAvailableScheduleService } from '../../../services/profesor/send-available-schedule.service';
 import {ScheduleComponent} from '../../schedule/schedule.component'
 @Component({
-	selector: 'app-choose-available-schedule',
-	templateUrl: './choose-available-schedule.component.html',
-	styleUrls: ['./choose-available-schedule.component.css']
+	selector: 'app-schedule-professor',
+	styleUrls: ['./schedule-professor.component.css'],
+	templateUrl: './schedule-professor.component.html'
 })
-export class ChooseAvailableScheduleComponent implements OnInit {
+export class ScheduleProfessorComponent implements OnInit {
 	days:string[]=[];
 	blocks:string[]=[];
 	validSchedule:number[][]=[];
@@ -30,7 +30,7 @@ export class ChooseAvailableScheduleComponent implements OnInit {
 	loadSchedule() {
 		this.days = [ "Lunes", "Martes", "Miercoles", "Jueves","Viernes"];
 		this.blocks = ['7-9','9-11','11-1','1-2','2-4','4-6','6-8'];
-		this.validSchedule = [[0,0],[	1,1],[2,2],[4,4]];
+		this.validSchedule = [[0,0],[	1,1],[2,2],[4,4],[1,0],[2,0],[3,0]];
 	}
 
 	send() {
