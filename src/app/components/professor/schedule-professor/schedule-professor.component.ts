@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,ViewChild} from '@angular/core';
 import { NgModule } from '@angular/core';
 	import { ProfessorService } from '../../../services/professor.service';
 import {ScheduleComponent} from '../../schedule/schedule.component'
@@ -8,8 +8,9 @@ import {ScheduleComponent} from '../../schedule/schedule.component'
 	templateUrl: './schedule-professor.component.html'
 })
 export class ScheduleProfessorComponent implements OnInit {
-
-	schedule:number[][];
+	@ViewChild(ScheduleComponent) scheduleView : ScheduleComponent;
+	schedule:string[][];
+	validSchedule:string[][];
 	constructor(private professorService: ProfessorService) {
 
 
@@ -20,11 +21,21 @@ export class ScheduleProfessorComponent implements OnInit {
 	 this.send();
 }
 	ngOnInit() {
-
+		this.schedule = this.getSchedule();
+		this.validSchedule = this.getValidSchedule();
 	}
 	getSchedule(){
 		//this.professorService.getSchedule(this.professorId);
-		return [["Jueves", "11-1"],["Viernes", "9-11"]];
+		return [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "9-11"],["Martes", "9-11"],["Miercoles", "11-1"],["Miercoles", "2-4"]];
+	}
+	setSchedule(){
+		if(!this.scheduleView.isChange()){
+			this.schedule = [];
+			this.validSchedule=  [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "7-9"],["Lunes", "9-11"],["Martes", "9-11"],["Miercoles", "11-1"],["Miercoles", "2-4"],["Viernes", "2-4"]];
+
+		}else{
+				console.log("// WARNING: changes in actual schedule");
+		}
 	}
 	getValidSchedule(){
 			//return this.professorService.getLabSchedule(this.professorId);

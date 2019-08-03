@@ -1,36 +1,41 @@
-import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
+import { Component,OnInit, OnChanges,Input,Output, EventEmitter,SimpleChanges } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent implements OnChanges,OnInit {
 @Output() messageEvent = new EventEmitter<string[][]>();
 @Input() days : string[];
 @Input() blocks: string[];
 @Input() validSchedule: string[];
 @Input() schedule:string[][];
-localSchedule:string[][];
+selectedSchedule:string[][];
 
 //@Output outEvent = new EventEmitter<any>();
-  constructor() { }
-
-  ngOnInit() {
-    if(this.schedule==null){
-      this.localSchedule=[];
-    }else{
-      this.localSchedule=this.schedule;
+  constructor(private toastr: ToastrService) { }
+  ngOnChanges(changes:SimpleChanges){
+    for(let change in changes){
+      if(change == "schedule"){
+        console.log(changes[change].currentValue);
+        this.selectedSchedule = changes[change].currentValue;
+        this.schedule = this.selectedSchedule.map(x => x);
+      }else if( change == "validSchedule"){
+        this.validSchedule =  changes[change].currentValue;
+      }
     }
+  }
+  ngOnInit() {
+
     if(this.days == null){
       this.days = this.getDays();
     }
     if(this.blocks==null){
       this.blocks = this.getBLocks();
     }
-    if(this.validSchedule == null){
-        this.validSchedule = this.getValidSchedule();
-    }
+
   }
   getValidSchedule(){
     var schedule = [];
@@ -49,14 +54,33 @@ localSchedule:string[][];
 	getBLocks(){
 		return ['7-9','9-11','11-1','1-2','2-4','4-6','6-8'];
 	}
-
+  selectetSchedule(){
+    return this.selectedSchedule;
+  }
+  isChange(){
+    if(this.schedule.length != this.selectedSchedule.length){
+      return true;
+    }
+    //console.log("input: "+this.schedule);
+    //console.log("Output: "+this.selectedSchedule);
+    for(let s of this.schedule){
+      if(this.find(s[0],s[1],this.selectedSchedule)== -1){
+        return true;
+      }
+    }
+    return false;
+  }
   sendSchedule(){
     //this.outEvent.emit(this.schedule);
   }
 
   save(){
-    console.log("Enviando");
-    this.messageEvent.emit(this.localSchedule)
+    if(this.isChange()){
+      this.toastr.warning("cambiando  horario", "Horario App");
+      this.messageEvent.emit(this.selectedSchedule)
+    }else{
+      this.toastr.warning("No se ha cambiado el horario", "Horario App");
+    }
   }
   find(day, block,schedule){
     if(schedule == null){
@@ -77,7 +101,7 @@ localSchedule:string[][];
     var valid = this.find(day,block,this.validSchedule)!=-1;
     var found = false;
     if(valid){
-		    found = this.find(day,block,this.localSchedule)!=-1;
+		    found = this.find(day,block,this.selectedSchedule)!=-1;
     }
 		return {  valid_block: valid&&!found , invalid_block: !valid,select_block: found};
 	}
@@ -86,20 +110,21 @@ localSchedule:string[][];
 
     if(this.find(day,block,this.validSchedule)== -1){
       console.log("Invalid");
+      this.toastr.warning("No disponible", "Horario App");
       return;
     }
 
-    var index = this.find(day,block,this.localSchedule);
+    var index = this.find(day,block,this.selectedSchedule);
     var found = index!= -1;
     if (found) {
-      console.log("found");
-      this.localSchedule.splice(index, 1);
+      //console.log("found");
+      this.selectedSchedule.splice(index, 1);
     } else {
-      console.log("not found");
-      this.localSchedule.push([day, block]);
+      //console.log("not found");
+      this.selectedSchedule.push([day, block]);
     }
 
-    console.log(this.localSchedule);
+    //console.log(this.selectedSchedule);
   }
 
 }

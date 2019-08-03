@@ -66,10 +66,10 @@
          <div class="schedule">
             <div class="schedule-section"  >
 
-              <app-schedule (messageEvent)="receiveSchedule($event)" [validSchedule]="getValidSchedule()" [schedule]="getSchedule()"></app-schedule>
+              <app-schedule (messageEvent)="receiveSchedule($event)" [validSchedule]="validSchedule" [schedule]="schedule"></app-schedule>
 
          </div>
-
+         
       </div>
 
 
