@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { NgModule } from '@angular/core';
-import { SendAvailableScheduleService } from '../../../services/profesor/send-available-schedule.service';
+	import { ProfessorService } from '../../../services/professor.service';
 import {ScheduleComponent} from '../../schedule/schedule.component'
 @Component({
 	selector: 'app-schedule-professor',
@@ -8,35 +8,34 @@ import {ScheduleComponent} from '../../schedule/schedule.component'
 	templateUrl: './schedule-professor.component.html'
 })
 export class ScheduleProfessorComponent implements OnInit {
-	days:string[]=[];
-	blocks:string[]=[];
-	validSchedule:number[][]=[];
+
 	schedule:number[][];
-	constructor(private sendSchedule: SendAvailableScheduleService) {
+	constructor(private professorService: ProfessorService) {
 
 
 
 	}
- recibirlista($event){
+ receiveSchedule($event){
 	 this.schedule = $event;
-	 console.log("resp schedule: "+ this.schedule);
 	 this.send();
 }
 	ngOnInit() {
-		this.loadSchedule();
+
 	}
-
-
-	loadSchedule() {
-		this.days = [ "Lunes", "Martes", "Miercoles", "Jueves","Viernes"];
-		this.blocks = ['7-9','9-11','11-1','1-2','2-4','4-6','6-8'];
-		this.validSchedule = [[0,0],[	1,1],[2,2],[4,4],[1,0],[2,0],[3,0]];
+	getSchedule(){
+		//this.professorService.getSchedule(this.professorId);
+		return [["Jueves", "11-1"],["Viernes", "9-11"]];
 	}
-
+	getValidSchedule(){
+			//return this.professorService.getLabSchedule(this.professorId);
+		return [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "7-9"],["Lunes", "9-11"],["Martes", "9-11"],["Martes", "11-1"],["Miercoles", "11-1"],["Miercoles", "2-4"],["Viernes", "2-4"]];
+		//return [[0,0],[	1,1],[2,2],[4,4],[1,0],[2,0],[3,0]];
+	}
 	send() {
+		this.professorService.sendSchedule(this.schedule);
 
 		//if (this.schedule.length != 0) {
-		//	alert(this.sendSchedule.send(this.schedule));
+		//	alert(this.professorService.send(this.schedule));
 	//	}
 
 	}

@@ -9,7 +9,7 @@
 <div class="day" *ngFor="let vday of days; let i = index" >
     <h3  class= "dayText">{{vday}}</h3>
     <div *ngFor="let vblock of blocks; let j =index">
-      <div [ngClass] = 'getBlockClass(i,j)' class="block" (click) = 'setSchedule(i,j) ' height=20></div>
+      <div [ngClass] = 'getBlockClass(vday,vblock)' class="block" (click) = 'setSchedule(vday,vblock) ' height=20></div>
 
     </div>
 
