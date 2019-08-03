@@ -1,6 +1,10 @@
 *{
   font-family: 'Lato';
 }
+.set-color{
+  background-color: #0C3664 !important;
+}
+
 .block {
   height: 75px;
   overflow: auto;
@@ -8,11 +12,15 @@
 }
 
 .select_block {
-  background: #AED581;
+  background: #B0BEC5;
 }
 
-.unselect_block {
+.valid_block {
+  background: #ECEFF1;
+}
+.invalid_block{
   background: #FFFFFF;
+
 }
 
 .day {

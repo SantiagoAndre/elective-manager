@@ -9,13 +9,11 @@
 <div class="day" *ngFor="let vday of days; let i = index" >
     <h3  class= "dayText">{{vday}}</h3>
     <div *ngFor="let vblock of blocks; let j =index">
-      <div *ngIf="!vblock; then breakblock else workblock"> </div>
-        <ng-template #breakblock>
-            <div  class="block"  height=20></div>
-        </ng-template>
-        <ng-template #workblock>
-          <div [ngClass] = 'getBlockClass(i,j)' class="block" (click) = 'setSchedule(i,j) ' height=20></div>
-        </ng-template>
+      <div [ngClass] = 'getBlockClass(i,j)' class="block" (click) = 'setSchedule(i,j) ' height=20></div>
 
     </div>
+
+</div>
+<div class="save-bottom mt-4">
+   <button class="btn btn-lg btn-primary btn-block set-color" (click) = "save()" type="submit">Guardar</button>
 </div>
