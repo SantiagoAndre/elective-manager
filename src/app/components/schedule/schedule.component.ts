@@ -6,11 +6,11 @@ import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnInit {
-@Output() emitterSchedule: EventEmitter <any> = new EventEmitter <any> ();
-@Input() days : any;
-@Input() blocks: any;
-@Input() validSchedule: any;
-schedule:any;
+@Output() messageEvent = new EventEmitter<number[][]>();
+@Input() days : string[];
+@Input() blocks: string[];
+@Input() validSchedule: number[];
+schedule:number[][];
 
 
 //@Output outEvent = new EventEmitter<any>();
@@ -24,9 +24,8 @@ schedule:any;
   }
 
   save(){
-    console.log(this.days);
-    console.log(this.blocks);
-    //this.listah.emit(this.schedule);
+    console.log("Enviando");
+    this.messageEvent.emit(this.schedule)
   }
   find(day, block,schedule){
     var index = 0;

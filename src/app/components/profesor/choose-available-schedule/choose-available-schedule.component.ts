@@ -8,16 +8,19 @@ import {ScheduleComponent} from '../../schedule/schedule.component'
 	styleUrls: ['./choose-available-schedule.component.css']
 })
 export class ChooseAvailableScheduleComponent implements OnInit {
-	days:any=[];
-	blocks:any=[];
-	validSchedule:any=[];
+	days:string[]=[];
+	blocks:string[]=[];
+	validSchedule:number[][]=[];
+	schedule:number[][];
 	constructor(private sendSchedule: SendAvailableScheduleService) {
 
 
 
 	}
-recibirlista($event){
-	console.log(event);
+ recibirlista($event){
+	 this.schedule = $event;
+	 console.log("resp schedule: "+ this.schedule);
+	 this.send();
 }
 	ngOnInit() {
 		this.loadSchedule();
@@ -30,7 +33,7 @@ recibirlista($event){
 		this.validSchedule = [[0,0],[	1,1],[2,2],[4,4]];
 	}
 
-	save() {
+	send() {
 
 		//if (this.schedule.length != 0) {
 		//	alert(this.sendSchedule.send(this.schedule));
