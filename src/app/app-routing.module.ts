@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //import { HttpClientModule, HttpClient, HttpHeaders} from '@angular/common/http';
 import { ScheduleProfessorComponent } from './components/professor/schedule-professor/schedule-professor.component';
+import { ScheduleStudentComponent } from './components/student/schedule-student/schedule-student.component';
 import {ScheduleComponent} from './components/schedule/schedule.component'
 import { ElectivesComponent } from './components/secretary/electives/electives.component';
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
   {path: '',  component: SignInComponent, canActivate: [SessionupGuard]},
   {path: 'signIn', component: SignInComponent, canActivate: [SessionupGuard]},
-  {path: 'profesor/horario', component: ScheduleProfessorComponent},
+  {path: 'profesor/horario/:token', component: ScheduleProfessorComponent},
+  {path: 'estudiante/horario/:token', component: ScheduleStudentComponent},
   //{path: 'secretaria/electivas', component: ElectivaComponent},
   {path:'electives',component:ElectivesComponent},
   {path: 'secretaria', component: SecretariaComponent},

@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 //import { ElectivaComponent } from './components/secretaria/electivas/electiva.component';
 import { ScheduleProfessorComponent } from './components/professor/schedule-professor/schedule-professor.component';
+import { ScheduleStudentComponent } from './components/student/schedule-student/schedule-student.component';
 
 import { ElectivesComponent } from './components/secretary/electives/electives.component';
 import { AddElectiveComponent } from './components/secretary/electives/add-elective/add-elective.component';
@@ -25,7 +26,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
   declarations: [
     AppComponent,
     ScheduleProfessorComponent,
-
+    ScheduleStudentComponent,
     //ElectivaComponent,
     ElectivesComponent,
     AddElectiveComponent,

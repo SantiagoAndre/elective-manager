@@ -35,6 +35,9 @@ selectedSchedule:string[][];
     if(this.blocks==null){
       this.blocks = this.getBLocks();
     }
+    if(this.validSchedule==null){
+      this.validSchedule = this.getValidSchedule();
+    }
 
   }
   getValidSchedule(){

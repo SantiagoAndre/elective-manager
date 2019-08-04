@@ -1,6 +1,9 @@
 import { Component, OnInit,ViewChild} from '@angular/core';
 import { NgModule } from '@angular/core';
-	import { ProfessorService } from '../../../services/professor.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from "@angular/router";
+
+import { ProfessorService } from '../../../services/professor.service';
 import {ScheduleComponent} from '../../schedule/schedule.component'
 @Component({
 	selector: 'app-schedule-professor',
@@ -11,22 +14,36 @@ export class ScheduleProfessorComponent implements OnInit {
 	@ViewChild(ScheduleComponent,{static: true}) scheduleView : ScheduleComponent;
 	schedule:string[][];
 	validSchedule:string[][];
-	constructor(private professorService: ProfessorService) {
+	elective:any;
+	constructor(private professorService: ProfessorService,
+		private activedRoute: ActivatedRoute,
+	 	private router: Router) {
 
 
 
 	}
  receiveSchedule($event){
 	 this.schedule = $event;
+
 	 this.send();
 }
 	ngOnInit() {
+		if(!this.professorService.setToken(this.activedRoute.snapshot.params.token)){
+				this.router.navigate(['electives']);
+		}
 		this.schedule = this.getSchedule();
-		this.validSchedule = this.getValidSchedule();
+		this.elective =  this.getElective();
+		console.log(this.schedule);
+		//this.validSchedule = this.getValidSchedule();
+
+	}
+	getElective(){
+		return this.professorService.getElective();
 	}
 	getSchedule(){
-		//this.professorService.getSchedule(this.professorId);
-		return [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "9-11"],["Martes", "9-11"],["Miercoles", "11-1"],["Miercoles", "2-4"]];
+		return this.professorService.getSchedule();
+		//return [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "9-11"],["Martes", "9-11"],["Miercoles", "11-1"],["Miercoles", "2-4"]];
+
 	}
 	setSchedule(){
 		if(!this.scheduleView.isChange()){

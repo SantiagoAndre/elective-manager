@@ -33,9 +33,9 @@
 
          <!-- Left electives -->
          <div class="sended-electives">
-            <div class="list-elective mt-2">
+            <div class="list-elective mt-2" *ngFor="let elective of electives">
 
-               <div class="elective">
+               <div [ngClass] = 'getElectiveClass(elective.idElective)' class="elective" (click)="selectElective(elective.idElective)">
                   <div class="elective-content m-2">
                      <div class="elective-name">
                          {{elective.name}}
@@ -53,7 +53,7 @@
 
 
          <div class="schedule">
-            <div class="schedule-section"  >
+            <div class="schedule-section" *ngIf="schedule!=null" >
 
               <app-schedule (messageEvent)="receiveSchedule($event)" [schedule]="schedule"></app-schedule>
 

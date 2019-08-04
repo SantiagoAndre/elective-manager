@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs/Rx"
+import { Observable } from "rxjs/Rx";
 import {  HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -18,7 +18,7 @@ export class SecretaryService {
 
   cerrarSesion(){
     let accessToken = localStorage.getItem('accessToken');
-    //const url_api = 
+    //const url_api =
     localStorage.removeItem('accessToken');
     localStorage.removeItem('currentUser');
     return this.http.get(environment.apiURL + 'logout');
