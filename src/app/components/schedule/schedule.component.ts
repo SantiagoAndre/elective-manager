@@ -84,7 +84,7 @@ selectedSchedule:string[][];
   }
   find(day, block,schedule){
     if(schedule == null){
-      return true;
+      return 0;
     }
     var index = 0;
     for (var s in schedule) {
@@ -115,8 +115,7 @@ selectedSchedule:string[][];
     }
 
     var index = this.find(day,block,this.selectedSchedule);
-    var found = index!= -1;
-    if (found) {
+    if (index!= -1) {
       //console.log("found");
       this.selectedSchedule.splice(index, 1);
     } else {

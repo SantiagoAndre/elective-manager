@@ -8,7 +8,7 @@ import {ScheduleComponent} from '../../schedule/schedule.component'
 	templateUrl: './schedule-professor.component.html'
 })
 export class ScheduleProfessorComponent implements OnInit {
-	@ViewChild(ScheduleComponent) scheduleView : ScheduleComponent;
+	@ViewChild(ScheduleComponent,{static: true}) scheduleView : ScheduleComponent;
 	schedule:string[][];
 	validSchedule:string[][];
 	constructor(private professorService: ProfessorService) {
