@@ -38,7 +38,7 @@ export class SecretariaComponent implements OnInit {
   }
 
   listarElectivas(){
-    this.router.navigate(['/electives']);
+    this.router.navigate(['/secretaria/electivas']);
   }
 
   actualizarArchivo(){

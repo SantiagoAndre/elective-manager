@@ -41,7 +41,7 @@ export class ElectivesComponent implements OnInit {
     for(let elective in electives){
       this.electiveList.push(electives[elective]);
     }
-    console.log(electives);
+    //console.log(electives);
   }
 
   refreshList() {
@@ -51,17 +51,17 @@ export class ElectivesComponent implements OnInit {
   }
 
   onElectiveDelete(id: number) {
-    if (confirm('Are you sure to delete this record?')) {
+    if (confirm('Quieres eliminar la electiva?')) {
       this.service.deleteElective(id).then(res => {
         this.refreshList();
-        this.toastr.warning("Deleted Successfully", "Management Electives App.");
+        this.toastr.warning("ELectiva eliminada", "App Electivas..");
       });
     }
   }
   setNeedLab(elective){
     elective.needLab = !elective.needLab;
     this.service.updateElective(elective);
-    this.toastr.warning(elective+"Update Successfully", "Management Electives App.");
+    this.toastr.warning(elective+"Electiva actualizada", "App Electivas..");
   }
   AddOrEditElective(elective) {
     const dialogConfig = new MatDialogConfig();

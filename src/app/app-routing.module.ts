@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'profesor/horario/:token', component: ScheduleProfessorComponent},
   {path: 'estudiante/horario/:token', component: ScheduleStudentComponent},
   //{path: 'secretaria/electivas', component: ElectivaComponent},
-  {path:'electives',component:ElectivesComponent},
+  {path:'secretaria/electivas',component:ElectivesComponent},
   {path: 'secretaria', component: SecretariaComponent},
   {path: 'horario', component: ScheduleComponent}
 ];

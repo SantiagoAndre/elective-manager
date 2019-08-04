@@ -33,20 +33,20 @@ export class AddElectiveComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (this.validateForm()) {
-            this.toastr.warning("hola",".");
       if (this.data.elective == null){
+              this.toastr.warning("Electiva añadida", "App Electivas..");
         this.electiveSevice.addElective(this.elective);
 
-        this.toastr.warning("Add Successfully", "Management Electives App.");
 
       }else{
+        this.toastr.warning("Electiva actualizada", "App Electivas..");
         this.electiveSevice.updateElective(this.elective);
 
-        this.toastr.warning("Update Successfully", "Management Electives App.");
       }
 
-      this.dialogRef.close();
     }
+
+    this.dialogRef.close();
   }
 
   validateForm() {
