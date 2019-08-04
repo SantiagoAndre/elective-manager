@@ -14,6 +14,7 @@ import { SessionupGuard } from './guards/sessionup.guard';
 
 const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
+  {path: '',  component: SignInComponent, canActivate: [SessionupGuard]},
   {path: 'signIn', component: SignInComponent, canActivate: [SessionupGuard]},
   {path: 'profesor/horario', component: ScheduleProfessorComponent},
   //{path: 'secretaria/electivas', component: ElectivaComponent},
