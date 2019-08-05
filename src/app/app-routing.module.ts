@@ -15,14 +15,13 @@ import { SessionupGuard } from './guards/sessionup.guard';
 
 const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
-  {path: '',  component: SignInComponent, canActivate: [SessionupGuard]},
-  {path: 'signIn', component: SignInComponent, canActivate: [SessionupGuard]},
-  {path: 'profesor/horario/:token', component: ScheduleProfessorComponent},
-  {path: 'estudiante/horario/:token', component: ScheduleStudentComponent},
+  //{path: '',  redirectTo:'signIn', pathMatch: 'full'},
+  {path: 'signIn', component: SignInComponent  },
+  {path: 'profesor/:token', component: ScheduleProfessorComponent},
+  {path: 'estudiante/:token', component: ScheduleStudentComponent},
   //{path: 'secretaria/electivas', component: ElectivaComponent},
   {path:'secretaria/electivas',component:ElectivesComponent},
-  {path: 'secretaria', component: SecretariaComponent},
-  {path: 'horario', component: ScheduleComponent}
+  {path: 'secretaria', component: SecretariaComponent}
 ];
 
 @NgModule({

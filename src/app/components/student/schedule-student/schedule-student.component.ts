@@ -49,7 +49,7 @@ export class ScheduleStudentComponent implements OnInit {
 
 	}
 	selectElective(idElective){
-		if(this.schedule == null || !this.scheduleView.isChange()||confirm("No has guadado los horarios de #{{this.elective.name}}, desea descartarlos?")){
+		if(this.schedule == null || !this.scheduleView.isChange()||confirm("No has guadado los horarios de "+this.getElective().name +" desea descartarlos?")){
 			//this.schedule = this.studentService.getSchedule(idElective);
 			this.studentService.selectElective(idElective);
 			this.schedule = this.getSchedule();

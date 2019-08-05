@@ -7,12 +7,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent implements OnChanges,OnInit {
-@Output() messageEvent = new EventEmitter<string[][]>();
+@Output() messageEvent = new EventEmitter<any>();
 @Input() days : string[];
 @Input() blocks: string[];
-@Input() validSchedule: string[];
-@Input() schedule:string[][];
-selectedSchedule:string[][];
+@Input() validSchedule: any;
+@Input() schedule:any;
+selectedSchedule:any;
 
 //@Output outEvent = new EventEmitter<any>();
   constructor(private toastr: ToastrService) { }
@@ -45,7 +45,7 @@ selectedSchedule:string[][];
     for(let day of this.days){
       for(let block of this.blocks){
         if(block != "1-2"){
-          schedule.push([day, block]);
+          schedule.push({"day":day, "hours": block});
         }
       }
     }
@@ -64,8 +64,8 @@ selectedSchedule:string[][];
     if(this.schedule.length != this.selectedSchedule.length){
       return true;
     }
-    //console.log("input: "+this.schedule);
-    //console.log("Output: "+this.selectedSchedule);
+    console.log("input: "+this.schedule);
+    console.log("Output: "+this.selectedSchedule);
     for(let s of this.schedule){
       if(this.find(s[0],s[1],this.selectedSchedule)== -1){
         return true;
@@ -92,7 +92,7 @@ selectedSchedule:string[][];
     var index = 0;
     for (var s in schedule) {
       //console.log(day + "==" + this.schedule[s][0] + " and " + this.schedule[s][1] + " == " + block);
-      if (schedule[s][0] == day && schedule[s][1] == block) {
+      if (schedule[s].day == day && schedule[s].hours == block) {
         return  index;
       }
       index += 1;
@@ -123,10 +123,10 @@ selectedSchedule:string[][];
       this.selectedSchedule.splice(index, 1);
     } else {
       //console.log("not found");
-      this.selectedSchedule.push([day, block]);
+      this.selectedSchedule.push({"day":day, "hours":block});
     }
 
-    //console.log(this.selectedSchedule);
+    console.log(this.selectedSchedule);
   }
 
 }

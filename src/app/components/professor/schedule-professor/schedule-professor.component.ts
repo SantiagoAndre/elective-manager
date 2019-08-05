@@ -11,10 +11,12 @@ import {ScheduleComponent} from '../../schedule/schedule.component'
 	templateUrl: './schedule-professor.component.html'
 })
 export class ScheduleProfessorComponent implements OnInit {
-	@ViewChild(ScheduleComponent,{static: true}) scheduleView : ScheduleComponent;
-	schedule:string[][];
+	@ViewChild(ScheduleComponent,{static: false}) scheduleView : ScheduleComponent;
+	schedule:string[][]=[];
+	electiva:any = {};
 	validSchedule:string[][];
-	elective:any;
+	elective:any=[];
+	json:any;
 	constructor(private professorService: ProfessorService,
 		private activedRoute: ActivatedRoute,
 	 	private router: Router) {
@@ -24,27 +26,26 @@ export class ScheduleProfessorComponent implements OnInit {
 	}
  receiveSchedule($event){
 	 this.schedule = $event;
-
+	 this.json.teacherSchedule = this.schedule;
 	 this.send();
 }
 	ngOnInit() {
+
 		if(!this.professorService.setToken(this.activedRoute.snapshot.params.token)){
 				this.router.navigate(['electives']);
 		}
-		this.schedule = this.getSchedule();
-		this.elective =  this.getElective();
-		console.log(this.schedule);
+		this.professorService.loadJson().toPromise().then(rest=>this.load(rest));
+
+		console.log("schedule: "+this.schedule);
 		//this.validSchedule = this.getValidSchedule();
 
 	}
-	getElective(){
-		return this.professorService.getElective();
+	load(json){
+		this.schedule = json.teacherSchedule;
+		this.elective = json.elective;
+		this.json = json;
 	}
-	getSchedule(){
-		return this.professorService.getSchedule();
-		//return [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "9-11"],["Martes", "9-11"],["Miercoles", "11-1"],["Miercoles", "2-4"]];
 
-	}
 	setSchedule(){
 		if(!this.scheduleView.isChange()){
 			this.schedule = [];
@@ -60,7 +61,7 @@ export class ScheduleProfessorComponent implements OnInit {
 		//return [[0,0],[	1,1],[2,2],[4,4],[1,0],[2,0],[3,0]];
 	}
 	send() {
-		this.professorService.sendSchedule(this.schedule);
+		this.professorService.sendSchedule(this.json).toPromise().then(rest => console.log("actualizado"));
 
 		//if (this.schedule.length != 0) {
 		//	alert(this.professorService.send(this.schedule));

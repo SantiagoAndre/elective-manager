@@ -44,7 +44,7 @@ export class SecretariaComponent implements OnInit {
   actualizarArchivo(){
     let formData = new FormData();
     formData.append("uploads[]", this.uploadedFile[0], this.uploadedFile[0].name);
-    this.secretary.uploadFile(this.uploadedFile[0]).subscribe( rest => (console.log(rest)) );
+    this.secretary.uploadFile(formData).subscribe( rest => (console.log(rest)) );
   }
 
   onFileChange(e){
