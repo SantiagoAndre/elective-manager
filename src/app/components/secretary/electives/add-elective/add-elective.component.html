@@ -8,13 +8,13 @@
   <div class="form-row">
     <div  class="inputDiv form-group col-md-8">
       <label>Id</label>
-      <input name="Id" [(ngModel)]="elective.idElective" class="form-control" [class.is-invalid]="elective.idElective == '' ">
+      <input name="Id" [(ngModel)]="elective.idElective" class="form-control" (change)="invalid_id=false" [class.is-invalid]="elective.idElective == '' || invalid_id">
     </div>
 
     <div  id="idLab"  class="form-group  col-md-2">
       <label id ="labelLab" class="pull-left">Necesita Laboratorio?</label>
       <div id="labDiv" class="custom-control custom-switch">
-        <input type="checkbox" [checked]="elective.needLab"  class="custom-control-input" id="needLabSwitch">
+        <input type="checkbox" [checked]="elective.needLab"  class="custom-control-input" id="needLabSwitch" (click)="setNeedLab()">
         <label class="custom-control-label" for="needLabSwitch"></label>
       </div>
     </div>
@@ -26,7 +26,8 @@
   </div>
 
   <div class="form-group">
-    <button type="submit" class="btn btn-dark default-color"><i class="fa"  [ngClass] = 'getIconClass()'></i> {{textActionForm()}}</button>
+    <button type="submit" class="btn btn-dark default-color"><i class="fa" [ngClass] = 'getIconClass()'></i> {{textActionForm()}}</button>
+
 
   </div>
 </form>

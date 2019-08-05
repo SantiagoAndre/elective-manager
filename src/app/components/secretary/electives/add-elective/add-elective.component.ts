@@ -14,7 +14,7 @@ import { Elective } from './../../../../services/secretary/elective.model';
 })
 export class AddElectiveComponent implements OnInit {
   elective:Elective;
-  isValid: boolean = true;
+  invalid_id:boolean = false;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data,
     public dialogRef: MatDialogRef<AddElectiveComponent>,
@@ -34,28 +34,45 @@ export class AddElectiveComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (this.validateForm()) {
       if (this.data.elective == null){
+        console.log("add elective");
+        this.electiveSevice.addElective(this.elective).subscribe(
+          res => {
               this.toastr.warning("Electiva añadida", "App Electivas..");
-        this.electiveSevice.addElective(this.elective);
+              this.dialogRef.close();
+            },
+          err => {
+            this.toastr.warning("Ya existe una electiva con ese codigo", "App Electivas..");
+            this.invalid_id = true;
+          }
+        );
 
 
       }else{
-        this.toastr.warning("Electiva actualizada", "App Electivas..");
-        this.electiveSevice.updateElective(this.elective);
+        console.log("update elective");
+        this.electiveSevice.updateElective(this.elective).subscribe(
+          res => {
+            this.toastr.warning("Electiva actualizada", "App Electivas..");
+            this.dialogRef.close();
+            },
+          err => {
+            this.toastr.warning("Ya existe una electiva con ese codigo", "App Electivas..");
+            this.invalid_id = true;
+          }
+        );
 
       }
 
+    }else{
+      this.toastr.warning("Llena los campos obligatorios", "App Electivas..");
+
     }
 
-    this.dialogRef.close();
   }
 
   validateForm() {
-    this.isValid = true;
-    if (this.elective.name == '')
-      this.isValid = false;
-    else if (this.elective.teacherId == '')
-      this.isValid = false;
-    return this.isValid;
+    var isValid = !!this.elective.name &&
+                   !!this.elective.idElective;
+    return isValid;
   }
   textActionForm(){
     if(this.data.elective == null){
@@ -68,6 +85,9 @@ export class AddElectiveComponent implements OnInit {
     var update= (this.data.elective == null);
 		return { 'fa-plus': update, 'fa-pencil': !update };
 	}
+  setNeedLab(){
+    this.elective.needLab = !this.elective.needLab;
+  }
 
 
 }

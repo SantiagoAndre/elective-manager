@@ -45,23 +45,35 @@ export class ElectivesComponent implements OnInit {
   }
 
   refreshList() {
-    this.service.getElectiveList().then(res => this.loadElectives(res));
+    this.service.getElectiveList().subscribe(
+      res => this.loadElectives(res),
+       err=>console.log("Error al cargar electivas"));
 
 
   }
 
   onElectiveDelete(id: number) {
     if (confirm('Quieres eliminar la electiva?')) {
-      this.service.deleteElective(id).then(res => {
-        this.refreshList();
-        this.toastr.warning("ELectiva eliminada", "App Electivas..");
-      });
+      this.service.deleteElective(id).subscribe(
+        res => {
+          this.refreshList();
+          this.toastr.warning("ELectiva eliminada", "App Electivas..");
+        },
+        err=> {this.toastr.warning("ELectiva no eliminada", "App Electivas..");}
+      );
     }
   }
   setNeedLab(elective){
     elective.needLab = !elective.needLab;
-    this.service.updateElective(elective);
-    this.toastr.warning(elective+"Electiva actualizada", "App Electivas..");
+    this.service.updateElective(elective).subscribe(
+      res => {
+        this.toastr.warning("Electiva actualizada", "App Electivas..");
+        },
+      err => {
+        this.toastr.warning("Error al actualizar la electiva", "App Electivas..");
+          elective.needLab = !elective.needLab;
+      }
+    );
   }
   AddOrEditElective(elective) {
     const dialogConfig = new MatDialogConfig();
