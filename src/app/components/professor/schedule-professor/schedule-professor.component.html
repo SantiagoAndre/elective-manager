@@ -23,7 +23,7 @@
       </div>
    </nav>
 
-   <div class="container m-auto" *ngIf="invalid_token==false">
+   <div class="container m-auto" *ngIf="invalid_token==1">
 
       <div class="subtitle-page mt-4">
          <h1 class="text-left subtitle-page-text pt-3 ml-3">Elección de horario Electivas | Profesor</h1>
@@ -65,6 +65,6 @@
 </div>
       ​
 
-   <div class="container" *ngIf="invalid_token">
+   <div class="container" *ngIf="invalid_token==0">
      <h1>Link invalido, por favor contacte al administrador.</h1>
    </div>

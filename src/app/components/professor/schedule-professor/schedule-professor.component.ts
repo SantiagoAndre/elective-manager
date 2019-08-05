@@ -16,7 +16,7 @@ export class ScheduleProfessorComponent implements OnInit {
 	validSchedule:string[][];
 	elective:any={};
 	json:any;
-	invalid_token:any=true;
+	invalid_token:number = 2;
 	constructor(private professorService: ProfessorService,
 		private activedRoute: ActivatedRoute,
 	 	private router: Router) {
@@ -36,7 +36,7 @@ export class ScheduleProfessorComponent implements OnInit {
 		}
 		this.professorService.loadJson().subscribe(
 			rest=>this.load(rest),
-			err=>console.log("error: "+err));
+			err=>this.invalid_token=0);
 
 		console.log("schedule: "+this.schedule);
 		//this.validSchedule = this.getValidSchedule();
@@ -47,7 +47,7 @@ export class ScheduleProfessorComponent implements OnInit {
 		this.schedule = json.teacherSchedule;
 		this.elective = json.elective;
 		this.json = json;
-		this.invalid_token = false;
+		this.invalid_token = 1;
 		if(this.elective == null){
 			this.elective = {"name":"Sistemas expertos","idElective":"AWAF"};
 		}

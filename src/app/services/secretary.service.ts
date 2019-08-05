@@ -33,7 +33,8 @@ export class SecretaryService {
   }
 
   enviarCorreos(){
-    this.http.get(environment.apiURL + 'enviocorreos');
+    console.log(environment.apiURL + 'send_teachers_mails');
+    return this.http.post(environment.apiURL + 'send_teachers_mails',null);
   }
 
   uploadFile(data){
