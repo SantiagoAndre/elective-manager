@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddElectiveComponent } from './add-elective/add-elective.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SecretaryService } from 'src/app/services/secretary.service';
 import { Elective } from './../../../services/secretary/elective.model';
 
 @Component({
@@ -20,6 +21,7 @@ export class ElectivesComponent implements OnInit {
   screenHeight:number;
   screenWidth:number;
   constructor(private service: ElectiveService,
+    private secretary: SecretaryService,
     private router: Router,
     private toastr: ToastrService,
     private dialog: MatDialog) {
@@ -106,6 +108,15 @@ export class ElectivesComponent implements OnInit {
     }
     return professor.name+" "+ professor.last_name;
 
+  }
+
+  inicio(){
+    this.router.navigate(['/secretaria']);
+  }
+
+  logout(){
+    this.secretary.cerrarSesion().subscribe(rest=> (alert(rest)) );
+    this.router.navigate(['/signIn']);
   }
 
 }
