@@ -13,9 +13,8 @@ import {ScheduleComponent} from '../../schedule/schedule.component'
 export class ScheduleProfessorComponent implements OnInit {
 	@ViewChild(ScheduleComponent,{static: false}) scheduleView : ScheduleComponent;
 	schedule:string[][]=[];
-	electiva:any = {};
 	validSchedule:string[][];
-	elective:any=[];
+	elective:any={};
 	json:any;
 	invalid_token:any=true;
 	constructor(private professorService: ProfessorService,
@@ -44,10 +43,17 @@ export class ScheduleProfessorComponent implements OnInit {
 
 	}
 	load(json){
+		console.log(json);
 		this.schedule = json.teacherSchedule;
 		this.elective = json.elective;
 		this.json = json;
 		this.invalid_token = false;
+		if(this.elective == null){
+			this.elective = {"name":"Sistemas expertos","idElective":"AWAF"};
+		}
+		if(this.schedule == null){
+			this.schedule = [];
+		}
 	}
 
 	setSchedule(){
