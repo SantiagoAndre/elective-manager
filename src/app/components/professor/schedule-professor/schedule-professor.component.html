@@ -2,7 +2,7 @@
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
    <script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
 
-   <nav class="navbar navbar-expand-lg">
+   <nav class="navbar navbar-expand-lg" >
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
          <span style="color: white">X</span>
       </button>
@@ -23,7 +23,7 @@
       </div>
    </nav>
 
-   <div class="container m-auto">
+   <div class="container m-auto" *ngIf="invalid_token==false">
 
       <div class="subtitle-page mt-4">
          <h1 class="text-left subtitle-page-text pt-3 ml-3">Elección de horario Electivas | Profesor</h1>
@@ -61,7 +61,10 @@
 
       </div>
 
-
-
+</div>
+</div>
       ​
+
+   <div class="container" *ngIf="invalid_token">
+     <h1>Link invalido, por favor contacte al administrador.</h1>
    </div>

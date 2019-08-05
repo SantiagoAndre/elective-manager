@@ -17,6 +17,7 @@ export class ScheduleProfessorComponent implements OnInit {
 	validSchedule:string[][];
 	elective:any=[];
 	json:any;
+	invalid_token:any=true;
 	constructor(private professorService: ProfessorService,
 		private activedRoute: ActivatedRoute,
 	 	private router: Router) {
@@ -34,7 +35,9 @@ export class ScheduleProfessorComponent implements OnInit {
 		if(!this.professorService.setToken(this.activedRoute.snapshot.params.token)){
 				this.router.navigate(['electives']);
 		}
-		this.professorService.loadJson().toPromise().then(rest=>this.load(rest));
+		this.professorService.loadJson().subscribe(
+			rest=>this.load(rest),
+			err=>console.log("error: "+err));
 
 		console.log("schedule: "+this.schedule);
 		//this.validSchedule = this.getValidSchedule();
@@ -44,6 +47,7 @@ export class ScheduleProfessorComponent implements OnInit {
 		this.schedule = json.teacherSchedule;
 		this.elective = json.elective;
 		this.json = json;
+		this.invalid_token = false;
 	}
 
 	setSchedule(){
