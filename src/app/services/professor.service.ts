@@ -17,7 +17,7 @@ export class ProfessorService {
   constructor(private http: HttpClient) { }
   sendSchedule(json:any){
     console.log("Send schedule: "+json+".");
-    return this.http.post(environment.apiURL + 'teacher/'+this.token,json);
+    return this.http.post(environment.apiURL + 'teacher/'+this.token,json,{responseType: 'text'});
     //this.loadJson();
     console.log(environment.apiURL + 'teacher/'+this.token);
 

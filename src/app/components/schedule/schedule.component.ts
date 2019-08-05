@@ -64,10 +64,10 @@ selectedSchedule:any;
     if(this.schedule.length != this.selectedSchedule.length){
       return true;
     }
-    console.log("input: "+this.schedule);
-    console.log("Output: "+this.selectedSchedule);
+    //console.log("input: "+this.schedule);
+    //console.log("Output: "+this.selectedSchedule);
     for(let s of this.schedule){
-      if(this.find(s[0],s[1],this.selectedSchedule)== -1){
+      if(this.find(s.day,s.hours,this.selectedSchedule)== -1){
         return true;
       }
     }
@@ -78,11 +78,14 @@ selectedSchedule:any;
   }
 
   save(){
-    if(this.isChange()){
+     console.log("selected: "+this.selectedSchedule.length);
+    if(this.selectedSchedule.length==0){
+      this.toastr.warning("Eliga por lo menos un horario", "Horario App");
+    }else if(!this.isChange()){
+      this.toastr.warning("No se ha cambiado el horario", "Horario App");
+    }else{
       this.toastr.warning("cambiando  horario", "Horario App");
       this.messageEvent.emit(this.selectedSchedule)
-    }else{
-      this.toastr.warning("No se ha cambiado el horario", "Horario App");
     }
   }
   find(day, block,schedule){

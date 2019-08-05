@@ -65,7 +65,12 @@ export class ScheduleProfessorComponent implements OnInit {
 		//return [[0,0],[	1,1],[2,2],[4,4],[1,0],[2,0],[3,0]];
 	}
 	send() {
-		this.professorService.sendSchedule(this.json).toPromise().then(rest => console.log("actualizado"));
+		this.professorService.sendSchedule(this.json).toPromise().then(rest =>{
+			 console.log("actualizado");
+			 this.professorService.loadJson().subscribe(
+	 			rest=>this.load(rest),
+	 			err=>console.log("error: "+err));
+			});
 
 		//if (this.schedule.length != 0) {
 		//	alert(this.professorService.send(this.schedule));
