@@ -19,7 +19,7 @@ selectedSchedule:any;
   ngOnChanges(changes:SimpleChanges){
     for(let change in changes){
       if(change == "schedule"){
-        console.log(changes[change].currentValue);
+        //console.log(changes[change].currentValue);
         this.selectedSchedule = changes[change].currentValue;
         this.schedule = this.selectedSchedule.map(x => x);
       }else if( change == "validSchedule"){
@@ -78,7 +78,7 @@ selectedSchedule:any;
   }
 
   save(){
-     console.log("selected: "+this.selectedSchedule.length);
+     //console.log("selected: "+this.selectedSchedule.length);
     if(this.selectedSchedule.length==0){
       this.toastr.warning("Eliga por lo menos un horario", "Horario App");
     }else if(!this.isChange()){
@@ -129,7 +129,7 @@ selectedSchedule:any;
       this.selectedSchedule.push({"day":day, "hours":block});
     }
 
-    console.log(this.selectedSchedule);
+    //console.log(this.selectedSchedule);
   }
 
 }

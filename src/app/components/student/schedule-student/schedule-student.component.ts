@@ -25,7 +25,6 @@ export class ScheduleStudentComponent implements OnInit {
 	}
  receiveSchedule($event){
 	 this.schedule = $event;
-
 	 this.send();
 }
 	ngOnInit() {
@@ -34,6 +33,9 @@ export class ScheduleStudentComponent implements OnInit {
 		}
 		this.schedule = null;
 		this.electives =  this.getElectives();
+		this.selectElective(this.electives[0].idElective);
+
+
 		//this.validSchedule = this.getValidSchedule();
 
 	}
@@ -49,10 +51,14 @@ export class ScheduleStudentComponent implements OnInit {
 
 	}
 	selectElective(idElective){
+		console.log("sehjgjhgjhlect: "+this.select_elective);
 		if(this.schedule == null || !this.scheduleView.isChange()||confirm("No has guadado los horarios de "+this.getElective().name +" desea descartarlos?")){
 			//this.schedule = this.studentService.getSchedule(idElective);
 			this.studentService.selectElective(idElective);
 			this.schedule = this.getSchedule();
+			this.select_elective = idElective;
+			console.log("select: "+this.select_elective);
+
 			this.validSchedule=  [["Jueves", "11-1"],["Viernes", "9-11"],["Lunes", "7-9"],["Lunes", "9-11"],["Martes", "9-11"],["Miercoles", "11-1"],["Miercoles", "2-4"],["Viernes", "2-4"]];
 		}else{
 				console.log("// WARNING: changes in actual schedule");
@@ -72,12 +78,16 @@ export class ScheduleStudentComponent implements OnInit {
 
 	}
 	getElectiveClass(idElective){
-		var elective = this.getElective();
+		var elective = this.select_elective;
 		var select = false;
 		if(elective != null){
-				select = elective.idElective == idElective;
-				console.log(idElective+" == "+elective.idElective+" = "+select);
+			if(elective == idElective){
+				console.log(idElective+" == "+elective);
+				select = true;
+			}
+
 		}
+
 		return {  select_elective: select, unselect_elective: !select};
 	}
 

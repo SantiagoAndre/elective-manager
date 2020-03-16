@@ -15,7 +15,7 @@ import { SessionupGuard } from './guards/sessionup.guard';
 
 const routes: Routes = [
   //{ path: 'iniciarSesion',  component: IniciarSesionComponent},
-  //{path: '',  redirectTo:'signIn', pathMatch: 'full'},
+  {path: '',  redirectTo:'signIn', pathMatch: 'full'},
   {path: 'signIn', component: SignInComponent,  canActivate: [SessionupGuard]},
   {path: 'profesor/:token', component: ScheduleProfessorComponent},
   {path: 'estudiante/:token', component: ScheduleStudentComponent},

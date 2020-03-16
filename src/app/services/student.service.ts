@@ -49,7 +49,7 @@ export class StudentService {
       {"name":"Algoritmos evoulitvos","idElective":"AAAA"},
       {"name":"Metodologias agiles","idElective":"FFF3E"},
       {"name":"Seguridad informatica","idElective":"WDSDS"},
-      {"name":"Maquina del tiempo","idElective":"ADAS32"}
+      {"name":"Maquina del tiempo","idElective":"ADAS22"}
     ];
   }
 

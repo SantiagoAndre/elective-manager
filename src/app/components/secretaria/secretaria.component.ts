@@ -35,7 +35,12 @@ export class SecretariaComponent implements OnInit {
   cerrarPeriodo(){
     this.secretary.cerrarPeriodo();
   }
-
+  simulateStudent(){
+    this.router.navigate(['/estudiante/tokenDePrueba']);
+  }
+  simulateProfesor(){
+    this.router.navigate(['/profesor/tokenCaducado']);
+  }
   enviarCorreosProfesores(){
     this.secretary.enviarCorreos().subscribe(
       rest => (
